@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "slug": "miraj",
+  "name": "MIRAJ — retina & halucinația controlată",
+  "version": "1.0.0",
+  "updated": "2026-11-14",
+  "description": "MIRAJ — cum vede retina și cum construiește creierul imaginea: explicație interactivă pe trei niveluri, RO/EN, un singur fișier, offline.",
+  "egress": [],
+  "permissions": [
+    "localStorage"
+  ],
+  "storageKeys": [
+    "miraj.l",
+    "miraj.v"
+  ],
+  "sizeBytes": 149873,
+  "sha256": "d9974f6dfcb6d6d72d312ec566223c471bc9522cecbd79ebe0babd2ce58f94e4",
+  "csp": {
+    "present": true,
+    "directives": {
+      "default-src": "'none'",
+      "style-src": "'unsafe-inline'",
+      "script-src": "sha256×2",
+      "img-src": "data:",
+      "media-src": "blob: data:",
+      "connect-src": "'none'",
+      "base-uri": "'none'",
+      "form-action": "'none'"
+    },
+    "scriptInline": "hash",
+    "connect": "'none'"
+  },
+  "features": {
+    "export": false,
+    "import": false,
+    "i18n": [
+      "ro",
+      "en"
+    ],
+    "pwa": {
+      "manifest": false,
+      "serviceWorker": false
+    },
+    "modules": [
+      "core",
+      "store",
+      "ux",
+      "label"
+    ]
+  },
+  "kit": {
+    "version": "1.5.0",
+    "modules": [
+      "core",
+      "store",
+      "ux",
+      "label"
+    ]
+  },
+  "selfSerializing": false
+}

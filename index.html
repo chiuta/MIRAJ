@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="ro" data-fff-hash="d9974f6dfcb6d6d72d312ec566223c471bc9522cecbd79ebe0babd2ce58f94e4">
+<head>
+<meta charset="utf-8">
+<!--fff:kit:start v=1 modules=core,store,ux,label-->
+<meta name="fff-app" content="miraj">
+<meta name="fff-modules" content="core,store,ux,label">
+<style id="fff-style">/* fff-kit · stil comun (prefix fff-). Nu modifică stilul aplicației gazdă. */
+[data-fff-label]{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+[data-fff-label]:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:3px}
+#app-version[data-fff-label]{box-sizing:border-box;min-height:24px;min-width:24px}
+#app-version[data-fff-label][data-fff-inl]{display:inline-flex;align-items:center;vertical-align:middle}
+#app-version[data-fff-label][data-fff-fs],#app-version[data-fff-label] [data-fff-fs]{font-size:12px!important}
+.fff-dlg{--_bg:var(--fff-bg,#fff);--_fg:var(--fff-fg,#1b1b1f);--_mut:var(--fff-muted,#4a4d57);--_line:var(--fff-line,#c4c7d0);--_btn:var(--fff-btn,#eef0f4);--_pri:var(--fff-accent,#0b57d0);--_prif:var(--fff-accent-fg,#fff);--_bad:var(--fff-bad,#b3261e);--_ok:var(--fff-ok,#146c2e);--_note:#fff1c9;--_notef:#3d2e00;
+  box-sizing:border-box;width:min(42rem,calc(100vw - 2rem));max-width:calc(100vw - 2rem);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);margin:auto;padding:0;overflow:auto;
+  border:1px solid var(--_line);border-radius:12px;background:var(--_bg);color:var(--_fg);font:14px/1.5 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);text-align:left;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.fff-dlg.fff-dark{--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}
+@media (prefers-color-scheme:dark){.fff-dlg:not(.fff-light){--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}}
+.fff-dlg::backdrop{background:rgba(0,0,0,.55)}
+.fff-dlg-sm{width:min(26rem,calc(100vw - 2rem))}
+.fff-dlg *,.fff-dlg *::before,.fff-dlg *::after{box-sizing:border-box}
+.fff-dlg .fff-in{padding:16px 20px 20px}
+.fff-dlg .fff-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px}
+.fff-dlg h2{margin:0;font-family:inherit;font-size:1.25rem;font-weight:700;line-height:1.3;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg h3{margin:0 0 6px;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.35;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg p{margin:0 0 8px;color:var(--_fg);font-size:inherit}
+.fff-dlg .fff-mut{color:var(--_mut)}
+.fff-dlg p.fff-mut{color:var(--_mut)}
+.fff-dlg .fff-sm{font-size:.85rem}
+.fff-dlg .fff-lead{font-size:1.05rem}
+.fff-dlg .fff-sec{border-top:1px solid var(--_line);padding-top:12px;margin-top:12px}
+.fff-dlg .fff-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;overflow-wrap:anywhere}
+.fff-dlg .fff-break{word-break:break-all}
+.fff-dlg code{background:none;border:0;padding:0;color:inherit}
+.fff-dlg .fff-list{margin:0 0 8px;padding-left:1.2rem;list-style:disc}
+.fff-dlg .fff-list li{margin:2px 0;color:var(--_fg)}
+.fff-dlg .fff-cols{columns:2 14rem}
+.fff-dlg .fff-tbl{width:100%;table-layout:fixed;border-collapse:collapse;margin:0 0 8px}
+.fff-dlg .fff-tbl th,.fff-dlg .fff-tbl td{padding:3px 6px;border-bottom:1px solid var(--_line);text-align:left;vertical-align:top;color:var(--_fg)}
+.fff-dlg .fff-tbl th.fff-num,.fff-dlg .fff-tbl td.fff-num{text-align:right;width:6.5rem;white-space:nowrap}
+.fff-dlg .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-dlg .fff-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.fff-dlg .fff-end{justify-content:flex-end}
+.fff-dlg .fff-btn{appearance:none;min-height:36px;min-width:36px;padding:6px 14px;border:1px solid var(--_line);border-radius:8px;background:var(--_btn);color:var(--_fg);font:inherit;font-weight:600;cursor:pointer;text-transform:none;letter-spacing:0;box-shadow:none}
+.fff-dlg .fff-btn:hover{border-color:var(--_fg)}
+.fff-dlg .fff-btn:focus-visible,.fff-dlg .fff-input:focus-visible,.fff-dlg summary:focus-visible,.fff-dlg .fff-pre:focus-visible{outline:2px solid var(--_fg);outline-offset:2px}
+.fff-dlg .fff-primary{background:var(--_pri);color:var(--_prif);border-color:transparent}
+.fff-dlg .fff-danger{background:var(--_bad);color:var(--_bg)}
+.fff-dlg .fff-danger-o{color:var(--_bad);border-color:var(--_bad)}
+.fff-dlg .fff-x{font-size:1.4rem;line-height:1;padding:2px 10px}
+.fff-dlg .fff-box{border:1px solid var(--_line);border-radius:8px;padding:10px;margin:0 0 8px}
+.fff-dlg [hidden]{display:none}
+.fff-dlg .fff-field{display:flex;flex-direction:column;gap:2px;margin:0 0 8px}
+.fff-dlg .fff-field label{font-weight:600}
+.fff-dlg .fff-input{width:100%;min-height:36px;padding:6px 10px;border:1px solid var(--_line);border-radius:6px;background:var(--_bg);color:var(--_fg);font:inherit}
+.fff-dlg .fff-note{background:var(--_note);color:var(--_notef);padding:8px 10px;border-radius:8px}
+.fff-dlg .fff-res{min-height:1.5em}
+.fff-dlg .fff-ok{color:var(--_ok);font-weight:600}
+.fff-dlg .fff-bad{color:var(--_bad);font-weight:600}
+.fff-dlg .fff-det{margin:0 0 8px}
+.fff-dlg .fff-det summary{cursor:pointer;font-weight:600;min-height:24px}
+.fff-dlg .fff-pre{margin:6px 0 0;padding:8px 10px;overflow:auto;white-space:pre-wrap;word-break:break-all;border:1px solid var(--_line);border-radius:6px;background:var(--_btn);color:var(--_fg)}
+.fff-dlg .fff-foot{border-top:1px solid var(--_line);margin-top:12px;padding-top:10px}
+.fff-dlg .fff-msg{font-size:1rem;margin-bottom:14px;white-space:pre-line;overflow-wrap:anywhere}
+.fff-chip{appearance:none;background:none;border:1px dotted currentColor;border-radius:6px;color:inherit;font:inherit;font-size:.85em;cursor:pointer;min-height:24px;min-width:24px;padding:0 8px}
+.fff-chip{font-size:max(12px,.85em)}
+.fff-chip:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (pointer:coarse){.fff-dlg .fff-btn,.fff-dlg .fff-input{min-height:44px}.fff-dlg .fff-btn{min-width:44px}.fff-dlg .fff-det summary{min-height:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-dlg[open]{animation:fff-in .12s ease-out}@keyframes fff-in{from{transform:translateY(6px)}to{transform:none}}}
+@media (prefers-reduced-motion:reduce){.fff-dlg,.fff-dlg *{animation:none!important;transition:none!important}}
+.fff-dlg .fff-dt{margin:0 0 8px}
+.fff-dlg .fff-ta{resize:vertical;min-height:4.5em}
+.fff-dlg textarea.fff-input{font:inherit}
+.fff-toasts{--_tbg:var(--fff-toast-bg,#2b2d33);--_tfg:var(--fff-toast-fg,#f4f4f7);--_tac:var(--fff-toast-accent,#a8c7fa);
+  position:fixed;inset:auto 0 0 0;margin:0;padding:0 16px 16px;border:0;background:transparent;overflow:visible;z-index:2147483000;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:8px;font:14px/1.45 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);color:var(--_tfg);box-sizing:border-box}
+.fff-toasts *{box-sizing:border-box}
+.fff-toast-reg{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.fff-toast-reg:empty{display:none}
+.fff-toast{pointer-events:auto;display:flex;align-items:center;gap:10px;max-width:min(34rem,100%);padding:10px 12px 10px 14px;border-radius:10px;background:var(--_tbg);color:var(--_tfg);border:1px solid rgba(255,255,255,.18);border-left:6px solid #a8c7fa;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.fff-toast-success{border-left-color:#81c995}.fff-toast-warning{border-left-color:#fdd663}.fff-toast-error{border-left-color:#f28b82}
+.fff-toast-msg{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;white-space:pre-line}
+.fff-toast .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-toast .fff-btn{appearance:none;min-height:32px;min-width:32px;padding:2px 10px;border:1px solid rgba(255,255,255,.35);border-radius:8px;background:transparent;color:var(--_tac);font:inherit;font-weight:600;cursor:pointer}
+.fff-toast .fff-toast-x{font-size:1.3rem;line-height:1;color:var(--_tfg);padding:0 8px}
+.fff-toast .fff-btn:focus-visible{outline:2px solid var(--_tfg);outline-offset:2px}
+@media (pointer:coarse){.fff-toast .fff-btn{min-height:44px;min-width:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-toast{animation:fff-tin .16s ease-out}@keyframes fff-tin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.fff-toast{animation:none!important}}
+/* fff-kit · ux — confort la atingere. Specificitate 0 (:where) unde se poate: stilul propriu al aplicației are prioritate. */
+:where(:root:not([data-fff-ux="off"]) a, :root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) input, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) label, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) [role=switch], :root:not([data-fff-ux="off"]) [role=checkbox]){touch-action:manipulation}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) summary){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+:where(html:not([data-fff-ux="off"])){scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:where(:root:not([data-fff-ux="off"]) body){overflow-wrap:break-word}
+:where(:root:not([data-fff-ux="off"]) button:not(:disabled), :root:not([data-fff-ux="off"]) [role=button]){cursor:pointer}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) [role=tab]):active:not(:disabled){filter:brightness(.92)}
+@media (prefers-reduced-motion:reduce){:where(html:not([data-fff-ux="off"])){scroll-behavior:auto}}
+@media (pointer:coarse){
+  /* ținte de atingere de cel puțin 44×44 px (WCAG 2.5.5 / Apple HIG); min-* nu strică înălțimile proprii mai mari */
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]):not([type=color]):not([type=file])){min-height:44px}
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem]){min-width:44px}
+  :where(:root:not([data-fff-ux="off"]) input[type=checkbox], :root:not([data-fff-ux="off"]) input[type=radio]){min-width:22px;min-height:22px}
+  :where(:root:not([data-fff-ux="off"]) label:has(input[type=checkbox]), :root:not([data-fff-ux="off"]) label:has(input[type=radio])){min-height:44px;display:inline-flex;align-items:center;gap:.5em}
+  :root:not([data-fff-ux="off"]) [data-fff-hit]{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+  /* iOS mărește pagina la focus dacă textul câmpului e sub 16 px */
+  :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]):not([type=hidden]):not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) select:not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) textarea:not([data-fff-nouxfont]){font-size:max(16px,1em)}
+}</style>
+<script id="fff-kit">/* fff-kit 1.5.0 */
+/* ---- fff-kit/core ---- */
+/* fff-kit · core · v1.2.0 — fără rețea, fără dependențe. Definește window.FFF. */
+(function () {
+  'use strict';
+  /* anti-clickjacking: GitHub Pages nu trimite X-Frame-Options; dacă pagina e încadrată de o origine străină (sau într-un iframe sandbox),
+     conținutul aplicației e ascuns și apare doar un mesaj minimal tradus cu un link către pagină într-o fereastră nouă. */
+  function frameGuard() {
+    var M = {
+      ro: ['Această pagină nu poate fi încadrată în alt site.', 'Deschide-o într-o fereastră nouă'],
+      en: ['This page cannot be embedded in another site.', 'Open it in a new window'],
+      fr: ['Cette page ne peut pas être intégrée dans un autre site.', 'Ouvrez-la dans une nouvelle fenêtre'],
+      it: ['Questa pagina non può essere incorporata in un altro sito.', 'Aprila in una nuova finestra'],
+      es: ['Esta página no se puede incrustar en otro sitio.', 'Ábrela en una ventana nueva'],
+      pt: ['Esta página não pode ser incorporada noutro site.', 'Abra-a numa nova janela'],
+      hu: ['Ez az oldal nem ágyazható be másik webhelyre.', 'Nyisd meg új ablakban'],
+      de: ['Diese Seite kann nicht in eine andere Website eingebettet werden.', 'In einem neuen Fenster öffnen']
+    };
+    var d = document, de = d.documentElement;
+    var l = (de.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (!M[l]) l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    var m = M[l] || M.en, box = null;
+    function hideKids(b) {
+      for (var i = 0; i < b.children.length; i++) if (b.children[i] !== box) b.children[i].style.setProperty('display', 'none', 'important');
+    }
+    function build() {
+      var b = d.body;
+      if (!b || box) return;
+      box = d.createElement('div');
+      box.setAttribute('data-fff-frameguard', '');
+      box.setAttribute('role', 'alert');
+      box.style.cssText = 'display:block;box-sizing:border-box;margin:0;padding:24px 16px;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1b1b1f;background:#fff;text-align:center';
+      var p = d.createElement('p'); p.textContent = m[0]; p.style.cssText = 'margin:0 0 12px';
+      var a = d.createElement('a');
+      a.href = window.self.location.href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = m[1];
+      a.style.cssText = 'color:#0b57d0;text-decoration:underline;font-weight:600';
+      box.appendChild(p); box.appendChild(a);
+      hideKids(b);
+      b.appendChild(box);
+      b.style.setProperty('display', 'block', 'important');
+      de.style.display = '';
+      if (window.MutationObserver) new MutationObserver(function () { hideKids(b); if (box.parentNode !== b) b.appendChild(box); }).observe(b, {childList: true});
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', build); else build();
+  }
+  try {
+    if (window.top !== window.self) {
+      var __cross = false;
+      try { void window.top.location.href; } catch (e) { __cross = true; }
+      if (__cross) {
+        document.documentElement.style.display = 'none';   // ascuns până când mesajul e gata (nimic din aplicație nu rămâne vizibil)
+        try { window.top.location = window.self.location.href; } catch (e2) {}
+        try { frameGuard(); } catch (e4) {}
+      }
+    }
+  } catch (e3) {}
+  var KIT_VERSION = '1.5.0';
+  var F = (window.FFF = window.FFF || {});
+  if (F.core && F.core.version) return; // idempotent la dublă încărcare
+  var SUP = ['ro', 'en', 'fr', 'it', 'es', 'pt', 'hu', 'de'];
+  var doc = document;
+
+  /* ---------- clipboard sigur: refuzul de permisiune nu mai produce o excepție neprinsă ----------
+   * navigator.clipboard.writeText respinge cu NotAllowedError când pagina nu are focus sau permisiunea e refuzată.
+   * Încercăm întâi API-ul, apoi execCommand('copy'); dacă nici acesta nu merge, respingerea rămâne (apelantul o poate prinde),
+   * dar dacă nimeni n-o prinde, o marcăm ca tratată, ca pagina să rămână stabilă. */
+  try {
+    var cb = navigator.clipboard;
+    if (cb && typeof cb.writeText === 'function' && !cb.__fffSafe) {
+      var rawWrite = cb.writeText.bind(cb);
+      var legacyCopy = function (t) {
+        var ta = doc.createElement('textarea');
+        ta.value = String(t); ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+        (doc.body || doc.documentElement).appendChild(ta); ta.select();
+        var ok = false; try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+        ta.remove(); return ok;
+      };
+      cb.writeText = function (t) {
+        var p; try { p = rawWrite(t); } catch (e) { p = Promise.reject(e); }
+        return p.catch(function (err) { if (legacyCopy(t)) return; throw err; });
+      };
+      try { Object.defineProperty(cb, '__fffSafe', {value: true}); } catch (e) { cb.__fffSafe = true; }
+    }
+  } catch (e5) {}
+  window.addEventListener('unhandledrejection', function (ev) {
+    var r = ev && ev.reason;
+    if (r && (r.name === 'NotAllowedError' || r.name === 'SecurityError') && /clipboard|permission/i.test(String(r.message || ''))) ev.preventDefault();
+  });
+
+  /* ---------- meta / app ---------- */
+  function meta(name) {
+    var m = doc.querySelector('meta[name="' + name + '"]');
+    return m ? (m.getAttribute('content') || '') : '';
+  }
+  function guessSlug() {
+    var p = (location.pathname || '').split('/').filter(Boolean);
+    var s = p.length ? p[p.length - 1] : '';
+    if (/\.html?$/i.test(s)) s = p.length > 1 ? p[p.length - 2] : '';
+    s = s.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '');
+    return s || 'app';
+  }
+  var SLUG = (meta('fff-app') || '').trim() || guessSlug();
+  var DISABLED = (meta('fff-disable') || '').trim() || '';
+  function computeApp() {
+    return {slug: SLUG, name: doc.title || SLUG, version: meta('application-version'), updated: meta('last-updated')};
+  }
+  var appCache = null;
+  Object.defineProperty(F, 'app', {
+    enumerable: true, configurable: true,
+    get: function () {
+      if (doc.readyState === 'loading') return computeApp();
+      return appCache || (appCache = computeApp());
+    }
+  });
+
+  /* ---------- bus ---------- */
+  var L = {};
+  var bus = {
+    on: function (ev, fn) { (L[ev] = L[ev] || []).push(fn); return function () { bus.off(ev, fn); }; },
+    off: function (ev, fn) { if (L[ev]) L[ev] = L[ev].filter(function (f) { return f !== fn; }); },
+    once: function (ev, fn) { var off = bus.on(ev, function (d) { off(); fn(d); }); return off; },
+    emit: function (ev, data) {
+      (L[ev] || []).slice().forEach(function (f) { try { f(data); } catch (e) { if (window.console) console.error('[fff] bus', ev, e); } });
+    }
+  };
+  F.bus = bus;
+
+  /* ---------- i18n ---------- */
+  var I18N = (F._i18n = F._i18n || {});
+  var i18nLoaded = false;
+  function mergeLang(mod, obj) {
+    var d = (I18N[mod] = I18N[mod] || {});
+    for (var l in obj) if (Object.prototype.hasOwnProperty.call(obj, l)) {
+      d[l] = Object.assign(d[l] || {}, obj[l]);
+    }
+  }
+  function loadI18nJson() {
+    var el = doc.getElementById('fff-i18n');
+    if (!el) return;
+    i18nLoaded = true;
+    try {
+      var j = JSON.parse(el.textContent || '{}');
+      for (var m in j) if (Object.prototype.hasOwnProperty.call(j, m)) mergeLang(m, j[m]);
+    } catch (e) { if (window.console) console.error('[fff] i18n', e); }
+  }
+  F.registerI18n = function (mod, obj) { mergeLang(mod, obj || {}); };
+  function lsGetRaw(k) { try { return LS ? origGet.call(LS, k) : null; } catch (e) { return null; } }
+
+  var LS = null;
+  try { LS = window.localStorage; } catch (e) { LS = null; }
+  var P = window.Storage ? window.Storage.prototype : null;
+  var origGet = P && P.getItem, origSet = P && P.setItem, origRem = P && P.removeItem, origClr = P && P.clear;
+
+  F.lang = function () {
+    var l = (doc.documentElement.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (SUP.indexOf(l) >= 0) return l;
+    var ks = ['lang', 'language', 'locale'];
+    for (var i = 0; i < ks.length; i++) {
+      var v = lsGetRaw(ks[i]);
+      if (v) { v = String(v).replace(/^"|"$/g, '').slice(0, 2).toLowerCase(); if (SUP.indexOf(v) >= 0) return v; }
+    }
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    return SUP.indexOf(n) >= 0 ? n : 'en';
+  };
+  var langObs = null, langFns = [];
+  F.onLang = function (fn) {
+    langFns.push(fn);
+    if (!langObs && window.MutationObserver) {
+      var last = F.lang();
+      langObs = new MutationObserver(function () {
+        var now = F.lang();
+        if (now === last) return;
+        last = now;
+        langFns.slice().forEach(function (f) { try { f(now); } catch (e) { if (window.console) console.error(e); } });
+        bus.emit('lang', now);
+      });
+      langObs.observe(doc.documentElement, {attributes: true, attributeFilter: ['lang']});
+    }
+    return function () { langFns = langFns.filter(function (f) { return f !== fn; }); };
+  };
+  F.t = function (mod, key, vars) {
+    if (!i18nLoaded) loadI18nJson();
+    var d = I18N[mod] || {};
+    var s = (d[F.lang()] || {})[key];
+    if (s == null) s = (d.en || {})[key];
+    if (s == null) s = (d.ro || {})[key];
+    if (s == null) s = key;
+    if (vars) for (var k in vars) if (Object.prototype.hasOwnProperty.call(vars, k)) s = String(s).split('{' + k + '}').join(String(vars[k]));
+    return s;
+  };
+
+  /* ---------- observator de stocare ---------- */
+  var INDEX_KEY = 'fff.' + SLUG + '.__keys';
+  var PFX = 'fff.' + SLUG + '.';
+  var idx = null; // Set de chei ale aplicației (fără prefix fff.)
+  function loadIdx() {
+    if (idx) return idx;
+    idx = new Set();
+    try {
+      var raw = origGet && LS ? origGet.call(LS, INDEX_KEY) : null;
+      if (raw) JSON.parse(raw).forEach(function (k) { if (typeof k === 'string') idx.add(k); });
+    } catch (e) { /* index corupt: se reface */ }
+    return idx;
+  }
+  function saveIdx() {
+    try { if (LS && origSet) origSet.call(LS, INDEX_KEY, JSON.stringify(Array.from(idx).sort())); } catch (e) { /* plin: ignorat */ }
+  }
+  /* momentul ultimei scrieri pe cheie (folosit de FFF.sync): {cheie: ms}, în fff.<slug>.__mt (exclus din chei/export, ca __keys), scris cu amânare */
+  var MT_KEY = 'fff.' + SLUG + '.__mt', mt = null, mtTimer = 0;
+  function loadMt() {
+    if (mt) return mt;
+    mt = Object.create(null);
+    try {
+      var raw = origGet && LS ? origGet.call(LS, MT_KEY) : null;
+      if (raw) { var o = JSON.parse(raw); Object.keys(o).forEach(function (k) { if (typeof o[k] === 'number') mt[k] = o[k]; }); }
+    } catch (e) { /* corupt: se reface */ }
+    return mt;
+  }
+  function touch(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    loadMt()[k] = Date.now();
+    if (mtTimer) return;
+    mtTimer = setTimeout(function () {
+      mtTimer = 0;
+      try { if (LS && origSet) origSet.call(LS, MT_KEY, JSON.stringify(mt)); } catch (e) { /* plin: ignorat */ }
+    }, 400);
+  }
+  F.mtime = function (k) { return loadMt()[String(k)] || 0; };
+  F.mtimeClear = function () { mt = Object.create(null); clearTimeout(mtTimer); mtTimer = 0; try { if (LS && origRem) origRem.call(LS, MT_KEY); } catch (e) { /* ignorat */ } };
+  function track(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    var s = loadIdx();
+    if (!s.has(k)) { s.add(k); saveIdx(); }
+  }
+  function untrack(k) {
+    k = String(k);
+    var s = loadIdx();
+    if (s.delete(k)) saveIdx();
+  }
+  var observing = false;
+  if (!DISABLED && LS && P && origGet && origSet && origRem && origClr) {
+    try {
+      P.getItem = function getItem(k) {
+        var v = origGet.apply(this, arguments);
+        if (v !== null && this === LS) { try { track(k); } catch (e) { /* nu strica aplicația */ } }
+        return v;
+      };
+      P.setItem = function setItem(k, v) {
+        var r = origSet.apply(this, arguments);
+        if (this === LS) { try { track(k); touch(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.removeItem = function removeItem(k) {
+        var r = origRem.apply(this, arguments);
+        if (this === LS) { try { untrack(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.clear = function clear() {
+        var r = origClr.apply(this, arguments);
+        if (this === LS) { idx = new Set(); }
+        return r;
+      };
+      observing = true;
+    } catch (e) { observing = false; }
+  }
+
+  /* ---------- FFF.store ---------- */
+  var mem = Object.create(null), frozen = false;   // fără prototip: chei ca __proto__/constructor/toString sunt chei obișnuite
+  function lsOk() { return !!(LS && origGet); }
+  var store = {
+    get: function (k, d) {
+      if (lsOk()) {
+        try { var v = origGet.call(LS, PFX + k); if (v == null) return d; return JSON.parse(v); } catch (e) { /* cade în memorie */ }
+      }
+      return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+    },
+    set: function (k, v) {
+      if (frozen) return false;
+      if (lsOk()) {
+        try { origSet.call(LS, PFX + k, JSON.stringify(v)); delete mem[k]; return true; } catch (e) { /* memorie */ }
+      }
+      mem[k] = v; return false;
+    },
+    remove: function (k) {
+      if (frozen) return;
+      if (lsOk()) { try { origRem.call(LS, PFX + k); } catch (e) { /* ignorat */ } }
+      delete mem[k];
+    },
+    keys: function () {
+      var out = [];
+      try {
+        if (LS) for (var i = 0; i < LS.length; i++) {
+          var n = LS.key(i);
+          if (n && n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.push(n.slice(PFX.length));
+        }
+      } catch (e) { /* ignorat */ }
+      Object.keys(mem).forEach(function (k) { if (out.indexOf(k) < 0) out.push(k); });
+      return out.sort();
+    },
+    /** Cheile (nume complete din localStorage) care aparțin aplicației: indexate + ale kitului (fff.<slug>.*). */
+    indexKeys: function () {
+      var out = new Set();
+      var present = Object.create(null);
+      try { if (LS) for (var i = 0; i < LS.length; i++) present[LS.key(i)] = 1; } catch (e) { /* ignorat */ }
+      loadIdx().forEach(function (k) { if (present[k]) out.add(k); });
+      Object.keys(present).forEach(function (n) { if (n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.add(n); });
+      return Array.from(out).sort();
+    },
+    /** Citire/scriere brută pentru modulele kitului (ocolește observatorul). */
+    raw: {
+      get: function (k) { return lsOk() ? origGet.call(LS, k) : null; },
+      set: function (k, v) { if (frozen) return; if (!lsOk()) throw new Error('no-storage'); origSet.call(LS, k, v); },
+      remove: function (k) { if (!frozen && lsOk()) origRem.call(LS, k); }
+    },
+    prefix: PFX,
+    indexKey: INDEX_KEY,
+    mtKey: MT_KEY,
+    /** Blochează orice scriere în stocare până la reîncărcare (restaurare/ștergere): handlerele pagehide/beforeunload ale aplicației
+     *  nu mai pot suprascrie datele tocmai scrise. Înlocuiește Storage.prototype.setItem/removeItem/clear cu no-op, oprește put/add/delete/clear
+     *  din IndexedDB și blochează scrierile FFF.store. NU poate opri atribuirea directă localStorage.cheie = valoare. Ireversibil (până la reload). */
+    freeze: function () {
+      if (frozen) return;
+      frozen = true;
+      var noop = function () {};
+      if (P) ['setItem', 'removeItem', 'clear'].forEach(function (n) {
+        try { Object.defineProperty(P, n, {value: noop, writable: true, configurable: true}); } catch (e) { try { P[n] = noop; } catch (e2) { /* ignorat */ } }
+      });
+      try {
+        var OS = window.IDBObjectStore && window.IDBObjectStore.prototype;
+        if (OS) {
+          var fake = function () {
+            return {readyState: 'pending', result: undefined, error: null, onsuccess: null, onerror: null,
+              addEventListener: noop, removeEventListener: noop, dispatchEvent: function () { return false; }};
+          };
+          ['put', 'add', 'delete', 'clear'].forEach(function (n) { try { Object.defineProperty(OS, n, {value: fake, writable: true, configurable: true}); } catch (e) { /* ignorat */ } });
+        }
+      } catch (e3) { /* ignorat */ }
+    },
+    frozen: function () { return frozen; },
+    forget: function (k) { if (observing) untrack(k); },
+    remember: function (k) { if (observing) track(k); },
+    available: function () { return lsOk(); },
+    observing: function () { return observing; }
+  };
+  F.store = store;
+
+  /* ---------- sha256 ---------- */
+  var K256 = null, H256 = null;
+  function frac(x) { return Math.floor((x - Math.floor(x)) * 4294967296) >>> 0; }
+  function initConsts() {
+    K256 = []; H256 = [];
+    for (var n = 2, c = 0; c < 64; n++) {
+      var p = true;
+      for (var d = 2; d * d <= n; d++) if (n % d === 0) { p = false; break; }
+      if (p) { if (c < 8) H256.push(frac(Math.sqrt(n))); K256.push(frac(Math.cbrt(n))); c++; }
+    }
+  }
+  function sha256js(bytes) {
+    if (!K256) initConsts();
+    var l = bytes.length, bl = l * 8;
+    var padded = new Uint8Array(((l + 9 + 63) >> 6) << 6);
+    padded.set(bytes); padded[l] = 0x80;
+    var dv = new DataView(padded.buffer);
+    dv.setUint32(padded.length - 8, Math.floor(bl / 4294967296)); dv.setUint32(padded.length - 4, bl >>> 0);
+    var h = H256.slice(), w = new Uint32Array(64);
+    function rr(x, n) { return (x >>> n) | (x << (32 - n)); }
+    for (var o = 0; o < padded.length; o += 64) {
+      for (var i = 0; i < 16; i++) w[i] = dv.getUint32(o + i * 4);
+      for (i = 16; i < 64; i++) {
+        var s0 = rr(w[i - 15], 7) ^ rr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        var s1 = rr(w[i - 2], 17) ^ rr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+      }
+      var a = h[0], b = h[1], c = h[2], d2 = h[3], e = h[4], f = h[5], g = h[6], hh = h[7];
+      for (i = 0; i < 64; i++) {
+        var S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g);
+        var t1 = (hh + S1 + ch + K256[i] + w[i]) | 0;
+        var S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), mj = (a & b) ^ (a & c) ^ (b & c);
+        var t2 = (S0 + mj) | 0;
+        hh = g; g = f; f = e; e = (d2 + t1) | 0; d2 = c; c = b; b = a; a = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + b) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d2) | 0;
+      h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map(function (v) { return ('00000000' + (v >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  function toBytes(x) {
+    if (typeof x === 'string') return Promise.resolve(new TextEncoder().encode(x));
+    if (x instanceof Uint8Array) return Promise.resolve(x);
+    if (x instanceof ArrayBuffer) return Promise.resolve(new Uint8Array(x));
+    if (ArrayBuffer.isView(x)) return Promise.resolve(new Uint8Array(x.buffer, x.byteOffset, x.byteLength));
+    if (x && typeof x.arrayBuffer === 'function') return x.arrayBuffer().then(function (b) { return new Uint8Array(b); });
+    return Promise.reject(new TypeError('sha256: tip neacceptat'));
+  }
+  F.sha256 = function (x) {
+    return toBytes(x).then(function (b) {
+      var sub = window.crypto && window.crypto.subtle;
+      if (sub) {
+        return sub.digest('SHA-256', b).then(function (h) {
+          return Array.prototype.map.call(new Uint8Array(h), function (v) { return ('0' + v.toString(16)).slice(-2); }).join('');
+        });
+      }
+      return sha256js(b);
+    });
+  };
+
+  /* ---------- download / pickFile ---------- */
+  F.download = function (name, data, mime) {
+    var blob = data instanceof Blob ? data : new Blob([data], {type: mime || 'application/octet-stream'});
+    var url = URL.createObjectURL(blob);
+    var a = doc.createElement('a');
+    a.href = url; a.download = name; a.hidden = true;
+    (doc.body || doc.documentElement).appendChild(a);
+    a.click();
+    setTimeout(function () { a.remove(); URL.revokeObjectURL(url); }, 4000);
+    return blob.size;
+  };
+  /** Rezolvă cu File sau null dacă utilizatorul anulează. */
+  F.pickFile = function (accept) {
+    return new Promise(function (res) {
+      var i = doc.createElement('input');
+      i.type = 'file'; i.hidden = true;
+      if (accept) i.accept = accept;
+      var done = false;
+      function fin(v) { if (done) return; done = true; i.remove(); res(v); }
+      i.addEventListener('change', function () { fin(i.files && i.files[0] ? i.files[0] : null); });
+      i.addEventListener('cancel', function () { fin(null); });
+      (doc.body || doc.documentElement).appendChild(i);
+      i.click();
+    });
+  };
+
+  /* ---------- instalare PWA (doar reținem evenimentul, nu îl blocăm) ---------- */
+  var core = F.core = {
+    version: KIT_VERSION,
+    slug: SLUG,
+    disabled: DISABLED || false,
+    installEvent: null,
+    modules: function () { return (meta('fff-modules') || '').split(',').filter(Boolean); }
+  };
+  window.addEventListener('beforeinstallprompt', function (e) { core.installEvent = e; bus.emit('installable', e); });
+  window.addEventListener('appinstalled', function () { core.installEvent = null; bus.emit('installed'); });
+
+  F.version = KIT_VERSION;
+  F.ready = function (fn) {
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { fn(); }, {once: true});
+    else fn();
+  };
+  F.fmtBytes = function (n) {
+    if (n < 1024) return n + ' B';
+    if (n < 1048576) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1048576).toFixed(2) + ' MB';
+  };
+})();
+/* ---- fff-kit/store ---- */
+/* fff-kit · store — stocare cu prefix de slug: <slug>.<cheie> (JSON sigur, cote/erori prinse, migrare idempotentă a cheilor vechi).
+   Extinde FFF.store din core: get/set/remove/keys lucrează acum pe `<slug>.`; datele kitului din `fff.<slug>.*` (srs, tts) rămân citibile (rezervă la citire). */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || !F.store || !F.core || F.store.migrate) return;
+  var S = F.store, SLUG = F.core.slug, PFX = SLUG + '.', LEG = S.prefix;   // LEG = 'fff.<slug>.' (spațiul kitului, din core)
+  var old = {get: S.get, set: S.set, remove: S.remove, keys: S.keys, indexKeys: S.indexKeys};
+  var mem = Object.create(null);
+
+  function lsOk() { return S.available(); }
+  function fail(op, key, e) {
+    var q = !!(e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22 || e.code === 1014));
+    S.lastError = {op: op, key: key, quota: q, message: String(e && e.message || e)};
+    try { F.bus.emit('store:error', S.lastError); } catch (x) { /* ignorat */ }
+    return S.lastError;
+  }
+  function okKey(k) { return k != null && String(k) !== ''; }
+  function parse(raw, d) {
+    if (raw == null) return d;
+    try { return JSON.parse(raw); } catch (e) { return raw; }   // valoare migrată fără JSON (ex. „dark”): se întoarce ca șir
+  }
+
+  S.appPrefix = PFX;
+  S.lastError = null;
+
+  /** get(cheie, implicit): citește `<slug>.<cheie>`, apoi (rezervă) `fff.<slug>.<cheie>`, apoi memoria (dacă stocarea a fost indisponibilă la scriere). */
+  S.get = function (k, d) {
+    if (!okKey(k)) return d;
+    k = String(k);
+    if (lsOk()) {
+      try {
+        var v = S.raw.get(PFX + k);
+        if (v == null) v = S.raw.get(LEG + k);
+        if (v != null) return parse(v, d);
+      } catch (e) { fail('get', k, e); }
+    }
+    return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+  };
+  /** set(cheie, valoare) → true dacă a ajuns în localStorage; false dacă e înghețat, JSON invalid (circular, BigInt…), cotă depășită sau stocare indisponibilă (valoarea rămâne în memorie). `undefined` = remove. */
+  S.set = function (k, v) {
+    if (!okKey(k)) return false;
+    k = String(k);
+    if (S.frozen()) return false;
+    if (v === undefined) { S.remove(k); return true; }
+    var str;
+    try { str = JSON.stringify(v); } catch (e) { fail('set', k, e); return false; }
+    if (str === undefined) { fail('set', k, new Error('valoare neserializabilă')); return false; }
+    if (lsOk()) {
+      try { S.raw.set(PFX + k, str); delete mem[k]; return true; } catch (e) { fail('set', k, e); }
+    }
+    mem[k] = v;
+    return false;
+  };
+  S.remove = function (k) {
+    if (!okKey(k) || S.frozen()) return;
+    k = String(k);
+    if (lsOk()) { try { S.raw.remove(PFX + k); S.raw.remove(LEG + k); } catch (e) { fail('remove', k, e); } }
+    delete mem[k];
+  };
+  S.has = function (k) {
+    if (!okKey(k)) return false;
+    try { if (lsOk() && (S.raw.get(PFX + k) != null || S.raw.get(LEG + k) != null)) return true; } catch (e) { /* ignorat */ }
+    return Object.prototype.hasOwnProperty.call(mem, String(k));
+  };
+  S.keys = function () {
+    var out = Object.create(null);
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) {
+        var n = ls.key(i);
+        if (n && n.indexOf(PFX) === 0 && n !== S.indexKey && n !== S.mtKey) out[n.slice(PFX.length)] = 1;
+      }
+    } catch (e) { /* ignorat */ }
+    old.keys.call(S).forEach(function (k) { if (k !== '__keys' && k !== '__mt') out[k] = 1; });
+    Object.keys(mem).forEach(function (k) { out[k] = 1; });
+    return Object.keys(out).sort();
+  };
+  /** Cheile cu nume complet ale aplicației: indexate, `<slug>.*` și `fff.<slug>.*`. */
+  S.indexKeys = function () {
+    var out = Object.create(null);
+    old.indexKeys.call(S).forEach(function (k) { out[k] = 1; });
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) { var n = ls.key(i); if (n && n.indexOf(PFX) === 0 && n !== S.mtKey) out[n] = 1; }
+    } catch (e) { /* ignorat */ }
+    return Object.keys(out).sort();
+  };
+  /** Este `nume` (complet, din localStorage) o cheie a spațiului aplicației? */
+  S.owns = function (name) { name = String(name); return name.indexOf(PFX) === 0 || name.indexOf(LEG) === 0; };
+
+  /**
+   * migrate({'cheieVeche': 'cheieNouă', 'prefix_*': 'nou.*'}, {wrap, dryRun, dropOld}) → {moved, same, conflicts, missing, errors, frozen}.
+   *  - cheia veche = numele brut din localStorage; cheia nouă = relativă la prefix (FFF.store.get('cheieNouă')); dacă începe deja cu `<slug>.` e luată ca atare.
+   *  - copiază valoarea EXACTĂ (șirul brut), verifică citirea înapoi, abia apoi șterge cheia veche. Nu suprascrie niciodată o valoare nouă existentă:
+   *    dacă ambele există și sunt identice → doar șterge cheia veche; dacă diferă → conflict (rămân ambele; `dropOld:true` șterge totuși cheia veche).
+   *  - idempotentă: a doua rulare nu mai găsește nimic de mutat. Un șablon cu `*` (la sfârșit, în ambele chei) mută toate cheile cu acel prefix.
+   *  - wrap: 'keep' (implicit; valoarea brută e copiată, iar get() întoarce JSON-ul parsat sau șirul brut) | 'string' (valoarea veche este împachetată ca șir JSON: get() întoarce exact șirul vechi).
+   *  - nu face nimic cât timp stocarea e înghețată (restaurare în curs). Emite `store:migrated` pe FFF.bus dacă a mutat ceva. */
+  S.migrate = function (map, opt) {
+    opt = opt || {};
+    var rep = {moved: [], same: [], conflicts: [], missing: [], errors: [], frozen: false};
+    if (S.frozen()) { rep.frozen = true; return rep; }
+    if (!lsOk() || !map || typeof map !== 'object') { if (map && typeof map === 'object') rep.errors.push({key: '*', message: 'stocare indisponibilă'}); return rep; }
+    var ls = window.localStorage, names = [];
+    try { for (var i = 0; i < ls.length; i++) names.push(ls.key(i)); } catch (e) { /* ignorat */ }
+    var pairs = [];
+    Object.keys(map).forEach(function (from) {
+      var to = String(map[from]);
+      if (from.charAt(from.length - 1) === '*') {
+        var fp = from.slice(0, -1), tp = to.charAt(to.length - 1) === '*' ? to.slice(0, -1) : to;
+        names.forEach(function (n) { if (n.indexOf(fp) === 0 && n.indexOf('fff.') !== 0) pairs.push([n, tp + n.slice(fp.length)]); });
+      } else pairs.push([from, to]);
+    });
+    pairs.forEach(function (p) {
+      var from = p[0], full = p[1].indexOf(PFX) === 0 ? p[1] : PFX + p[1];
+      if (!from || from === full || from.indexOf('fff.') === 0 || full === PFX) return;
+      try {
+        var oldV = S.raw.get(from);
+        if (oldV == null) { rep.missing.push(from); return; }
+        var cur = S.raw.get(full), val = opt.wrap === 'string' ? JSON.stringify(oldV) : oldV;
+        if (cur != null) {
+          if (cur === val || cur === oldV) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.same.push(from); }
+          else if (opt.dropOld) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.conflicts.push({key: from, to: full, dropped: true}); }
+          else rep.conflicts.push({key: from, to: full});
+          return;
+        }
+        if (opt.dryRun) { rep.moved.push(from); return; }
+        S.raw.set(full, val);
+        if (S.raw.get(full) !== val) throw new Error('verificarea citirii înapoi a eșuat');
+        S.raw.remove(from); S.forget(from);
+        rep.moved.push(from);
+      } catch (e) { rep.errors.push({key: from, message: fail('migrate', from, e).message, quota: S.lastError.quota}); }
+    });
+    if (rep.moved.length && !opt.dryRun) { try { F.bus.emit('store:migrated', rep); } catch (e) { /* ignorat */ } }
+    return rep;
+  };
+})();
+/* ---- fff-kit/ux ---- */
+/* fff-kit · FFF.ux — confort și satisfacție la utilizare, același în toate aplicațiile:
+ * (1) CSS (ux.css): ținte de atingere ≥44 px pe ecrane tactile, câmpuri cu text ≥16 px (fără zoom-ul intempestiv din iOS), fără întârzierea de 300 ms
+ *     la atingere (touch-action), apăsare vizibilă, derulare lină (respectă „mișcare redusă”), cuvinte lungi rupte în loc să iasă din ecran;
+ * (2) confirmare discretă la copiere în clipboard și la salvarea unui fișier (toast), doar dacă aplicația nu și-a afișat deja propria confirmare;
+ * (3) tasta „/” duce focusul în câmpul de căutare, Esc îl părăsește; (4) legăturile/etichetele mici ne-inline primesc zonă de atingere de 44 px.
+ * Opriri: <meta name="fff-ux" content="off">, ?noux=1; pe element: data-fff-hit="off" nu se aplică; data-fff-nouxfont păstrează textul propriu al câmpului. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.ux) return;
+  var doc = document, de = doc.documentElement;
+  function T(k) { return F.t('ux', k); }
+  var OFF = false;
+  function readOff() {
+    var m = doc.querySelector('meta[name="fff-ux"]');
+    OFF = (m && /^(off|0|false)$/i.test((m.getAttribute('content') || '').trim())) || /[?&]noux=(1|true)\b/.test(location.search);
+    if (OFF) de.setAttribute('data-fff-ux', 'off');
+  }
+  function toast(msg) {
+    try { if (F.dialog && F.dialog.toast) F.dialog.toast(msg, {type: 'success', timeout: 2200}); } catch (e) { /* ignorat */ }
+  }
+
+  /* confirmare doar dacă aplicația nu a afișat deja ceva similar (urmărim modificările din momentul acțiunii până la ~450 ms după încheierea ei) */
+  function watch(re) {
+    var w = {own: false, mo: null, stop: function () { if (w.mo) w.mo.disconnect(); }};
+    try {
+      w.mo = new MutationObserver(function (ms) {
+        for (var i = 0; i < ms.length && !w.own; i++) {
+          var m = ms[i], t = '';
+          if (m.target.closest && m.target.closest('[data-fff-toasts]')) continue;
+          if (m.type === 'characterData') t = m.target.nodeValue || '';
+          else if (m.type === 'attributes') t = (m.target.textContent || '') + ' ' + (m.target.getAttribute('aria-label') || '') + ' ' + (m.target.getAttribute('title') || '');
+          else for (var j = 0; j < m.addedNodes.length; j++) t += ' ' + (m.addedNodes[j].textContent || '');
+          if (re.test(t)) w.own = true;
+        }
+      });
+      w.mo.observe(doc.body, {subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class', 'hidden', 'aria-label', 'title']});
+    } catch (e) { /* ignorat */ }
+    return w;
+  }
+  function finish(w, msg) { setTimeout(function () { w.stop(); if (!w.own) toast(msg); }, 450); }
+  function confirmUnlessOwn(re, msg) { if (!OFF) finish(watch(re), msg); }
+  var RE_COPY = /copi|cop[ií]ad|kopier|másol|copied|copy/i, RE_SAVE = /salvat|exportat|descărc|descarg|télécharg|scaric|download|saved|export|gespeichert|letölt|mentve|baixad|guardad/i;
+
+  function patchClipboard() {
+    try {
+      var cb = navigator.clipboard;
+      if (!cb || !cb.writeText || cb.writeText.__fffux) return;
+      var orig = cb.writeText.bind(cb);
+      var w = function (t) {
+        var w = OFF ? null : watch(RE_COPY), p = orig(t);
+        if (w) { if (p && p.then) p.then(function () { finish(w, T('copied')); }, function () { w.stop(); }); else w.stop(); }
+        return p;
+      };
+      w.__fffux = true;
+      cb.writeText = w;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('copy', function () { /* copiere manuală: nimic */ }, {passive: true});
+  }
+  function patchDownload() {
+    try {
+      var proto = HTMLAnchorElement.prototype, orig = proto.click;
+      if (orig.__fffux) return;
+      var c = function () {
+        try { if (!OFF && this.hasAttribute && this.hasAttribute('download')) { var n = this.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); } } catch (e) { /* ignorat */ }
+        return orig.apply(this, arguments);
+      };
+      c.__fffux = true;
+      proto.click = c;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('click', function (e) {                                  // clic real pe un <a download>
+      var a = e.target && e.target.closest && e.target.closest('a[download]');
+      if (a && !OFF) { var n = a.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); }
+    }, true);
+  }
+
+  /* „/” → căutare */
+  function searchField() {
+    var q = doc.querySelectorAll('input[type=search],[role=searchbox],input[placeholder*="ăut" i],input[placeholder*="earch" i],input[placeholder*="echerch" i],input[placeholder*="uscar" i],input[aria-label*="ăut" i],input[aria-label*="earch" i],input[id*="search" i],input[id*="cauta" i],input[id*="caut" i],input[name*="search" i]');
+    for (var i = 0; i < q.length; i++) {
+      var e = q[i], r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+      if (r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !e.disabled && !e.readOnly) return e;
+    }
+    return null;
+  }
+  function onKey(e) {
+    if (OFF || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target, tag = t && t.tagName, typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable);
+    if (e.key === '/' && !typing) {
+      var f = searchField();
+      if (f) { e.preventDefault(); f.focus(); try { f.select(); } catch (x) { /* ignorat */ } }
+    } else if (e.key === 'Escape' && typing && t.type === 'search') { t.blur(); }
+  }
+
+  /* zonă de atingere pentru legături/etichete mici, ne-inline (butoane stilizate ca <a>), doar pe ecrane tactile */
+  function hitPass() {
+    if (OFF || !window.matchMedia || !matchMedia('(pointer:coarse)').matches) return;
+    var as = doc.querySelectorAll('a[href]:not([data-fff-hit]), [role=link]:not([data-fff-hit])'), n = 0;
+    for (var i = 0; i < as.length && n < 300; i++, n++) {
+      var a = as[i], cs = getComputedStyle(a);
+      if (cs.display === 'inline') continue;
+      var r = a.getBoundingClientRect();
+      if (r.width < 1 || r.height < 1 || r.height >= 44) continue;
+      if (cs.position === 'absolute' || cs.position === 'fixed') continue;
+      a.setAttribute('data-fff-hit', '1');
+    }
+  }
+  var hitT = 0;
+  function scheduleHit() { clearTimeout(hitT); hitT = setTimeout(hitPass, 500); }
+
+  function init() {
+    readOff();
+    if (OFF) return;
+    patchClipboard(); patchDownload();
+    doc.addEventListener('keydown', onKey);
+    scheduleHit();
+    try { new MutationObserver(scheduleHit).observe(doc.body, {childList: true, subtree: true}); } catch (e) { /* ignorat */ }
+  }
+  F.ux = {off: function () { OFF = true; de.setAttribute('data-fff-ux', 'off'); }, hitPass: hitPass, searchField: searchField, version: 1};
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
+})();
+/* ---- fff-kit/label ---- */
+/* fff-kit · label — dialogul „Transparență”: rețea, stocare, permisiuni, fișier + hash, copie de siguranță. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.label) return;
+  var doc = document;
+  var DISABLED = F.core && F.core.disabled;
+  function T(k, v) { return F.t('label', k, v); }
+
+  var PERM = {
+    getUserMedia: 'cam', geolocation: 'geo', RTCPeerConnection: 'rtc', 'navigator.share': 'share', Notification: 'notif',
+    speechSynthesis: 'tts', SpeechRecognition: 'stt', clipboard: 'clip', serviceWorker: 'sw', indexedDB: 'idb',
+    localStorage: 'ls', 'Web Crypto': 'crypto', WebGL: 'webgl', WebGPU: 'webgpu', Worker: 'worker', BroadcastChannel: 'bc'
+  };
+  var SHELL = "LC_ALL=C sed -E 's/data-fff-hash=\"[0-9a-f]*\"/data-fff-hash=\"\"/g; s/\"sha256\":\"[0-9a-f]*\"/\"sha256\":\"\"/g' index.html | sha256sum";
+
+  /* ---------- info ---------- */
+  var infoCache;
+  function info() {
+    if (infoCache) return infoCache;
+    var el = doc.getElementById('fff-info'), o = null;
+    if (el) { try { o = JSON.parse(el.textContent || '{}'); } catch (e) { o = null; } }
+    infoCache = o || {};
+    infoCache._present = !!o;
+    return infoCache;
+  }
+
+  /* ---------- DOM mic ---------- */
+  function h(tag, attrs) {
+    var e = doc.createElement(tag);
+    if (attrs) for (var k in attrs) if (Object.prototype.hasOwnProperty.call(attrs, k) && attrs[k] != null) {
+      if (k === 'text') e.textContent = attrs[k]; else if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]);
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c == null || c === false) continue;
+      e.appendChild(typeof c === 'string' ? doc.createTextNode(c) : c);
+    }
+    return e;
+  }
+  function btn(text, cls, fn) {
+    var b = h('button', {type: 'button', class: 'fff-btn' + (cls ? ' ' + cls : ''), text: text});
+    if (fn) b.addEventListener('click', fn);
+    return b;
+  }
+  var uid = 0;
+  function field(label, type, ac) {
+    var id = 'fff-f' + (++uid);
+    var i = h('input', {id: id, type: type, class: 'fff-input', autocomplete: ac || 'off'});
+    return {wrap: h('div', {class: 'fff-field'}, h('label', {for: id, text: label}), i), input: i};
+  }
+
+  /* ---------- tema gazdei ---------- */
+  function hostDark() {
+    function rgba(el) {
+      var m = /rgba?\(([^)]+)\)/.exec(getComputedStyle(el).backgroundColor || '');
+      if (!m) return null;
+      var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+      if (p.length > 3 && p[3] === 0) return null;
+      return p;
+    }
+    var p = (doc.body && rgba(doc.body)) || rgba(doc.documentElement);
+    if (!p) return null;
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return (0.2126 * lin(p[0]) + 0.7152 * lin(p[1]) + 0.0722 * lin(p[2])) < 0.18;
+  }
+
+  /* ---------- hash canonic ---------- */
+  function canonBytes(buf) {
+    var u = new Uint8Array(buf), s = '';
+    for (var i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000));
+    s = s.replace(/data-fff-hash="[0-9a-f]*"/g, 'data-fff-hash=' + '"' + '"').replace(/"sha256":"[0-9a-f]*"/g, '"sha256":' + '"' + '"');
+    var out = new Uint8Array(s.length);
+    for (var j = 0; j < s.length; j++) out[j] = s.charCodeAt(j);
+    return out;
+  }
+  function declaredHash() {
+    var a = doc.documentElement.getAttribute('data-fff-hash');
+    return /^[0-9a-f]{64}$/.test(a || '') ? a : (/^[0-9a-f]{64}$/.test(info().sha256 || '') ? info().sha256 : '');
+  }
+
+  /* ---------- dialog ---------- */
+  var dlg = null, timer = 0, lastFocus = null;
+
+  function section(id, title) {
+    var hid = 'fff-h-' + id;
+    var sec = h('section', {class: 'fff-sec', 'aria-labelledby': hid}, h('h3', {id: hid, text: title}));
+    return sec;
+  }
+
+  function storageRows(tbody, sum) {
+    var keys = F.store.indexKeys(), rows = [], total = 0;
+    var enc = new TextEncoder();
+    keys.forEach(function (k) {
+      var v = F.store.raw.get(k) || '';
+      var n = enc.encode(k).length + enc.encode(v).length;
+      total += n; rows.push([k, n]);
+    });
+    rows.sort(function (a, b) { return b[1] - a[1]; });
+    var sig = rows.length + ':' + total;
+    if (tbody._sig === sig) return;
+    tbody._sig = sig;
+    tbody.textContent = '';
+    rows.slice(0, 25).forEach(function (r) {
+      tbody.appendChild(h('tr', null, h('td', {class: 'fff-mono', text: r[0]}), h('td', {class: 'fff-num', text: F.fmtBytes(r[1])})));
+    });
+    if (rows.length > 25) tbody.appendChild(h('tr', null, h('td', {colspan: '2', text: T('store_more', {n: rows.length - 25})})));
+    sum.textContent = rows.length ? T('store_sum', {n: rows.length, size: F.fmtBytes(total)}) : T('store_none');
+    tbody.parentNode.hidden = !rows.length;
+  }
+
+  function build() {
+    var I = info(), a = F.app;
+    var name = I.name || a.name, ver = I.version || a.version, upd = I.updated || a.updated;
+    var d = h('dialog', {class: 'fff-dlg', 'aria-labelledby': 'fff-lbl-title', lang: F.lang()});
+    var dark = hostDark();
+    if (dark === true) d.classList.add('fff-dark'); else if (dark === false) d.classList.add('fff-light');
+    var inner = h('div', {class: 'fff-in'});
+    var closeB = btn('×', 'fff-x', function () { api.close(); });
+    closeB.setAttribute('aria-label', T('close'));
+    inner.appendChild(h('div', {class: 'fff-hd'}, h('h2', {id: 'fff-lbl-title', text: T('title')}), closeB));
+    inner.appendChild(h('p', {class: 'fff-lead'}, h('strong', {text: name}), ' ', h('span', {class: 'fff-mut', text: 'v ' + (ver || '?') + (upd ? ' · ' + upd : '')})));
+    if (I.description) inner.appendChild(h('p', {class: 'fff-mut', text: I.description}));
+    if (DISABLED) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('disabled', {reason: DISABLED})}));
+    if (I.selfModifying) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('self_mod')}));
+
+    /* Rețea */
+    var net = section('net', T('net_h'));
+    if (!I._present) net.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var eg = I.egress || [];
+      if (!eg.length) net.appendChild(h('p', null, h('strong', {text: T('net_none')})));
+      else {
+        net.appendChild(h('p', {text: T('net_list')}));
+        var ul = h('ul', {class: 'fff-list'});
+        eg.forEach(function (e) {
+          var host = typeof e === 'string' ? e : e.host, via = typeof e === 'string' ? '' : (e.via || []).join(', ');
+          ul.appendChild(h('li', null, h('span', {class: 'fff-mono', text: host}), via ? h('span', {class: 'fff-mut', text: ' — ' + via}) : null));
+        });
+        net.appendChild(ul);
+      }
+      if (I.egressNote) net.appendChild(h('p', {class: 'fff-mut', text: I.egressNote}));
+      net.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('net_note')}));
+    }
+    inner.appendChild(net);
+
+    /* Stocare */
+    var st = section('store', T('store_h'));
+    var sum = h('p', {role: 'status'});
+    var tb = h('tbody');
+    var tbl = h('table', {class: 'fff-tbl'}, h('caption', {class: 'fff-sr', text: T('store_h')}),
+      h('thead', null, h('tr', null, h('th', {scope: 'col', text: T('store_key')}), h('th', {scope: 'col', class: 'fff-num', text: T('store_size')}))), tb);
+    st.appendChild(sum); st.appendChild(tbl);
+    if ((I.permissions || []).indexOf('indexedDB') >= 0) st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_idb')}));
+    st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_note')}));
+    inner.appendChild(st);
+    storageRows(tb, sum);
+    d._tick = function () { storageRows(tb, sum); };
+
+    /* Permisiuni */
+    var pm = section('perm', T('perm_h'));
+    if (!I._present) pm.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var ps = I.permissions || [];
+      if (!ps.length) pm.appendChild(h('p', {text: T('perm_none')}));
+      else {
+        var pl = h('ul', {class: 'fff-list fff-cols'});
+        ps.forEach(function (p) { pl.appendChild(h('li', {text: PERM[p] ? T('perm_' + PERM[p]) : p})); });
+        pm.appendChild(pl);
+      }
+      pm.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('perm_note')}));
+    }
+    inner.appendChild(pm);
+
+    /* Fișier */
+    var fl = section('file', T('file_h'));
+    var dh = declaredHash();
+    if (I.sizeBytes) fl.appendChild(h('p', {text: T('file_size', {size: F.fmtBytes(I.sizeBytes)})}));
+    if (dh) {
+      fl.appendChild(h('p', {class: 'fff-sm'}, T('file_hash') + ' ', h('code', {class: 'fff-mono fff-break', text: dh})));
+      var res = h('p', {role: 'status', class: 'fff-res'});
+      var vb = btn(T('verify_btn'), '', function () {
+        res.className = 'fff-res'; res.textContent = '';
+        F.pickFile('.html,.htm,text/html').then(function (f) {
+          if (!f) return null;
+          return f.arrayBuffer().then(function (buf) { return F.sha256(canonBytes(buf)); }).then(function (got) {
+            if (got === dh) { res.className = 'fff-res fff-ok'; res.textContent = '✔ ' + T('verify_ok'); }
+            else { res.className = 'fff-res fff-bad'; res.textContent = '✖ ' + T('verify_bad', {got: got}); }
+          });
+        }).catch(function () { res.className = 'fff-res fff-bad'; res.textContent = T('verify_err'); });
+      });
+      fl.appendChild(h('p', null, vb));
+      fl.appendChild(res);
+      fl.appendChild(h('details', {class: 'fff-det'}, h('summary', {text: T('file_how_h')}),
+        h('p', {class: 'fff-sm', text: T('file_how')}), h('pre', {class: 'fff-pre fff-mono', tabindex: '0', 'aria-label': T('verify_cmd'), text: SHELL})));
+    } else fl.appendChild(h('p', {class: 'fff-mut', text: T('file_nohash')}));
+    inner.appendChild(fl);
+
+    /* Copie de siguranță */
+    if (F.bundle && !DISABLED) inner.appendChild(backup());
+
+    /* Kit + instalare */
+    var foot = h('div', {class: 'fff-foot'});
+    var mods = (I.kit && I.kit.modules) || F.core.modules();
+    foot.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('kit_line', {v: F.version, mods: mods.join(', ') || 'core'})}));
+    if (F.core.installEvent) {
+      var ib = btn(T('install'), 'fff-primary', function () {
+        var ev = F.core.installEvent;
+        if (!ev) return;
+        ev.prompt(); F.core.installEvent = null; ib.hidden = true;
+      });
+      foot.appendChild(ib);
+    }
+    inner.appendChild(foot);
+
+    d.appendChild(inner);
+    d.addEventListener('click', function (e) { if (e.target === d) api.close(); });
+    d.addEventListener('keydown', function (e) { if (e.key !== 'Escape') e.stopPropagation(); });
+    d.addEventListener('keyup', function (e) { e.stopPropagation(); });
+    d.addEventListener('keypress', function (e) { e.stopPropagation(); });
+    d.addEventListener('close', function () { if (dlg === d) cleanup(); });
+    return d;
+  }
+
+  /** Număr cu separator de mii după limbă (aceeași formă ca în textele traduse). */
+  function fmtNum(n) {
+    var sep = {en: ',', it: '.', de: '.'}[F.lang()] || ' ';
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  }
+
+  function backup() {
+    var bk = section('bk', T('bk_h'));
+    var status = h('p', {role: 'status', class: 'fff-res'});
+    function say(msg, kind) { status.className = 'fff-res' + (kind ? ' fff-' + kind : ''); status.textContent = msg; }
+    function fail(e) { say((e && e.message) || String(e), 'bad'); }
+    bk.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('bk_hint', {iter: fmtNum(F.bundle.iterations)})}));
+
+    /* export criptat */
+    var encRow = h('div', {class: 'fff-box', hidden: ''});
+    var pw1 = field(T('bk_pw', {n: F.bundle.minPassword}), 'password', 'new-password'), pw2 = field(T('bk_pw2'), 'password', 'new-password');
+    var goEnc = btn(T('bk_go'), 'fff-primary', function () {
+      if (pw1.input.value !== pw2.input.value) return say(T('pw_mismatch'), 'bad');
+      F.bundle.export({encrypt: true, password: pw1.input.value}).then(function (r) {
+        pwStrength.textContent = '';
+        say(T('ok_export_enc', {file: r.filename, n: r.keys}), 'ok'); pw1.input.value = pw2.input.value = ''; encRow.hidden = true; encBtn.setAttribute('aria-expanded', 'false');
+      }).catch(fail);
+    });
+    var pwStrength = h('p', {role: 'status', class: 'fff-mut fff-sm fff-res'});
+    pw1.input.addEventListener('input', function () { pwStrength.textContent = pw1.input.value ? F.t('bundle', ['pw_weak', 'pw_fair', 'pw_strong'][F.bundle.passwordStrength(pw1.input.value)]) : ''; });
+    encRow.appendChild(pw1.wrap); encRow.appendChild(pwStrength); encRow.appendChild(pw2.wrap); encRow.appendChild(h('div', {class: 'fff-row'}, goEnc));
+
+    /* import */
+    var impRow = h('div', {class: 'fff-box', hidden: ''});
+    var impPw = field(T('bk_pw_file'), 'password', 'current-password');
+    var pending = null;
+    var impGo = btn(T('bk_import_go'), 'fff-primary', function () { doImport(pending, impPw.input.value); });
+    impRow.appendChild(impPw.wrap); impRow.appendChild(h('div', {class: 'fff-row'}, impGo));
+    function doImport(file, pw) {
+      F.bundle.import(file, {password: pw, reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        impRow.hidden = true; impPw.input.value = '';
+        say(T('ok_import', {n: r.keys}), 'ok');
+      }).catch(function (e) {
+        if (e && e.code === 'bad_password') { impRow.hidden = false; impPw.input.focus(); }
+        fail(e);
+      });
+    }
+
+    var expB = btn(T('bk_export'), '', function () {
+      F.bundle.export().then(function (r) { if (r.cancelled) return say(T('cancelled')); say(T('ok_export', {file: r.filename, n: r.keys}), 'ok'); }).catch(fail);
+    });
+    var encBtn = btn(T('bk_export_enc'), '', function () {
+      var open = encRow.hidden;
+      encRow.hidden = !open; encBtn.setAttribute('aria-expanded', String(open));
+      if (open) pw1.input.focus();
+    });
+    encBtn.setAttribute('aria-expanded', 'false');
+    var impBtn = btn(T('bk_import'), '', function () {
+      F.pickFile('.json,application/json').then(function (f) {
+        if (!f) return;
+        pending = f; impRow.hidden = true;
+        return F.bundle.inspect(f).then(function (m) {
+          if (m.encrypted) { impRow.hidden = false; impPw.input.focus(); say(T('enter_pw', {file: f.name})); }
+          else doImport(f);
+        });
+      }).catch(fail);
+    });
+    var wipeB = btn(T('bk_wipe'), 'fff-danger-o', function () {
+      F.bundle.wipe({reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        say(r.keys ? T('ok_wipe', {n: r.keys}) : T('nothing_to_wipe'), 'ok');
+      }).catch(fail);
+    });
+    var syncB = null;
+    if (F.sync && F.sync.supported()) {
+      syncB = btn(T('bk_sync'), '', function () {
+        F.sync.dialog({reload: true}).then(function (r) {
+          say(F.t('sync', 'result', {adopted: r.adopted, same: r.same, conflicts: r.conflicts}), 'ok');
+        }).catch(fail);
+      });
+    }
+    bk.appendChild(h('div', {class: 'fff-row'}, expB, encBtn, impBtn, wipeB));
+    var histB = null;
+    if (F.history && F.history.supported()) {
+      histB = btn(T('bk_history'), '', function () { F.history.dialog({reload: true}).catch(fail); });
+    }
+    if (syncB || histB) bk.appendChild(h('div', {class: 'fff-row'}, syncB, histB));
+    bk.appendChild(encRow); bk.appendChild(impRow); bk.appendChild(status);
+    return bk;
+  }
+
+  function cleanup() {
+    clearInterval(timer); timer = 0;
+    if (dlg) { dlg.remove(); dlg = null; }
+    if (lastFocus && lastFocus.isConnected && lastFocus.focus) { try { lastFocus.focus(); } catch (e) { /* ignorat */ } }
+    lastFocus = null;
+  }
+
+  var api = F.label = {
+    state: 'init',
+    open: function () {
+      if (dlg) return dlg;
+      infoCache = null;
+      lastFocus = doc.activeElement;
+      dlg = build();
+      (doc.body || doc.documentElement).appendChild(dlg);
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+      timer = setInterval(function () { if (dlg && dlg._tick) dlg._tick(); }, 1500);
+      F.bus.emit('label:open');
+      return dlg;
+    },
+    close: function () {
+      if (!dlg) return;
+      var d = dlg;
+      try { d.close(); } catch (e) { /* ignorat */ }
+      if (dlg === d) cleanup();
+    },
+    isOpen: function () { return !!dlg; },
+    canon: canonBytes,
+    shellCommand: SHELL
+  };
+
+  /* ---------- transformarea #app-version în buton ---------- */
+  var fallback = null;
+  function rgba(str) {
+    var m = /rgba?\(([^)]+)\)/.exec(str || '');
+    if (!m) return null;
+    var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+    return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1];
+  }
+  function lum(c) {
+    function f(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
+  }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  /** Fundalul efectiv (amestecă straturile semitransparente peste primul fundal opac; implicit alb). */
+  function effBg(el) {
+    var layers = [], n = el;
+    while (n && n.nodeType === 1) {
+      var c = rgba(getComputedStyle(n).backgroundColor);
+      if (c && c[3] > 0) { layers.push(c); if (c[3] >= 1) break; }
+      n = n.parentElement;
+    }
+    var base = layers.length && layers[layers.length - 1][3] >= 1 ? layers.pop() : [255, 255, 255, 1];
+    while (layers.length) {
+      var t = layers.pop();
+      base = [t[0] * t[3] + base[0] * (1 - t[3]), t[1] * t[3] + base[1] * (1 - t[3]), t[2] * t[3] + base[2] * (1 - t[3]), 1];
+    }
+    return base;
+  }
+  /** Butonul de rezervă din footer moștenește culoarea gazdei; dacă nu atinge 4,5:1, alege negru/alb. */
+  function fitContrast(el) {
+    try {
+      var fg = rgba(getComputedStyle(el).color), bg = effBg(el);
+      if (!fg || ratio(fg, bg) >= 4.6) return;
+      el.style.color = ratio([0, 0, 0], bg) >= ratio([255, 255, 255], bg) ? '#000' : '#fff';
+    } catch (e) { /* ignorat */ }
+  }
+  function visibleFooter() {
+    var fs = doc.querySelectorAll('footer');
+    for (var i = 0; i < fs.length; i++) if (fs[i].getClientRects().length && getComputedStyle(fs[i]).visibility !== 'hidden') return fs[i];
+    return null;
+  }
+  /* Dimensiuni minime (WCAG 2.2 · 2.5.8 țintă ≥ 24 px; text ≥ 12 px) fără a atinge layoutul aplicației:
+     inline → inline-flex doar dacă elementul e într-adevăr inline; fontul se ridică la 12 px doar acolo unde e mai mic. */
+  function fit(el) {
+    try {
+      var all = [el].concat([].slice.call(el.querySelectorAll('*'))), i, n;
+      for (i = 0; i < all.length; i++) { all[i].removeAttribute('data-fff-fs'); }
+      el.removeAttribute('data-fff-inl');
+      if (getComputedStyle(el).display === 'inline') el.setAttribute('data-fff-inl', '1');
+      for (i = 0; i < all.length; i++) {
+        n = all[i];
+        var has = false, c;
+        for (c = n.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && c.nodeValue.trim()) { has = true; break; }
+        if (has && parseFloat(getComputedStyle(n).fontSize) < 12) n.setAttribute('data-fff-fs', '1');
+      }
+    } catch (e) {}
+  }
+  var fitT = 0, fitEl = null;
+  function fitSoon() { if (fitT) return; fitT = setTimeout(function () { fitT = 0; var e = doc.querySelector('#app-version[data-fff-label]'); if (e) fit(e); }, 150); }
+  function decorate() {
+    var el = doc.getElementById('app-version');
+    if (el) {
+      if (fallback) { fallback.remove(); fallback = null; }
+      if (el.getAttribute('data-fff-label')) { if (fitEl !== el) { fitEl = el; fit(el); } api.state = 'button'; return; }
+      if (el.closest('a,button,[role="button"],[role="link"],summary,label,input,select,textarea')) { api.state = 'nested'; return; }
+      el.setAttribute('data-fff-label', '1');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-haspopup', 'dialog');
+      el.setAttribute('title', T('open_hint'));
+      fitEl = el; fit(el);
+      api.state = 'button';
+      return;
+    }
+    if (!fallback && doc.readyState === 'complete') {
+      var ft = visibleFooter();
+      if (ft) {
+        fallback = h('button', {type: 'button', class: 'fff-chip', 'data-fff-chip': '1', 'aria-haspopup': 'dialog', title: T('open_hint'), text: T('title')});
+        fallback.addEventListener('click', function () { api.open(); });
+        ft.appendChild(fallback);
+        fitContrast(fallback);
+        api.state = 'footer';
+      } else api.state = 'none';
+    }
+  }
+  function onClick(e) {
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function onKey(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function init() {
+    // resturi dintr-o copie salvată de aplicație (outerHTML): le curățăm înainte de a le recrea
+    [].slice.call(doc.querySelectorAll('dialog.fff-dlg, [data-fff-chip]')).forEach(function (n) { n.remove(); });
+    if (DISABLED) { api.state = 'disabled'; return; }
+    decorate();
+    doc.addEventListener('click', onClick);
+    doc.addEventListener('keydown', onKey);
+    if (window.MutationObserver) {
+      var pend = false;
+      new MutationObserver(function () {
+        if (pend) return;
+        pend = true;
+        setTimeout(function () { pend = false; decorate(); }, 200);
+      }).observe(doc.body || doc.documentElement, {childList: true, subtree: true});
+    }
+    window.addEventListener('load', function () { setTimeout(decorate, 800); setTimeout(fitSoon, 900); });
+    window.addEventListener('resize', fitSoon);
+    F.onLang(function () {
+      var el = doc.querySelector('#app-version[data-fff-label]');
+      if (el) el.setAttribute('title', T('open_hint'));
+      if (dlg) { api.close(); api.open(); }
+    });
+  }
+  F.ready(init);
+})();
+</script>
+<script type="application/json" id="fff-i18n">{"ux":{"ro":{"copied":"Copiat","saved":"Salvat"},"en":{"copied":"Copied","saved":"Saved"},"fr":{"copied":"Copié","saved":"Enregistré"},"it":{"copied":"Copiato","saved":"Salvato"},"es":{"copied":"Copiado","saved":"Guardado"},"pt":{"copied":"Copiado","saved":"Guardado"},"de":{"copied":"Kopiert","saved":"Gespeichert"},"hu":{"copied":"Másolva","saved":"Mentve"}},"label":{"ro":{"title":"Transparență","open_hint":"Deschide eticheta de transparență","close":"Închide","disabled":"Funcțiile kitului sunt dezactivate pentru această aplicație: {reason}","self_mod":"Atenție: aplicația își poate salva propria copie (împreună cu datele tale). Suma SHA-256 declarată se aplică doar fișierului distribuit inițial.","net_h":"Rețea","net_none":"0 cereri externe declarate","net_list":"Gazde externe declarate sau permise de politica de securitate (CSP):","net_note":"Declarat la construirea fișierului, prin analiza codului; poți verifica și în fila Rețea a instrumentelor browserului.","net_unknown":"Informații indisponibile: fișierul nu conține descriptorul de transparență.","store_h":"Stocare locală","store_none":"Nicio cheie în localStorage.","store_sum":"{n} chei · {size}","store_key":"Cheie","store_size":"Mărime","store_more":"…și încă {n} chei","store_idb":"Aplicația folosește și IndexedDB, care nu este inclus în copia de siguranță.","store_note":"Datele rămân în acest browser; nimic nu este trimis.","perm_h":"Permisiuni și API-uri folosite","perm_none":"Nu au fost detectate API-uri sensibile.","perm_note":"Detectate static în codul sursă; pentru cele sensibile, browserul îți cere acordul.","perm_cam":"Cameră / microfon","perm_geo":"Locație","perm_rtc":"Conexiuni directe între browsere (WebRTC)","perm_share":"Partajare (Web Share)","perm_notif":"Notificări","perm_tts":"Sinteză vocală","perm_stt":"Recunoaștere vocală","perm_clip":"Clipboard","perm_sw":"Service worker (instalare / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fișier","file_size":"Dimensiune: {size}","file_hash":"SHA-256 declarat:","file_nohash":"Suma de control nu este declarată în acest fișier.","file_how_h":"Cum verifici","file_how":"Alege fișierul descărcat: se calculează SHA-256 după golirea câmpurilor de hash (data-fff-hash și „sha256”) și se compară cu valoarea declarată. Același calcul în terminal:","verify_btn":"Verifică un fișier descărcat…","verify_ok":"Se potrivește: fișierul este identic cu cel declarat.","verify_bad":"Nu se potrivește. Calculat: {got}","verify_err":"Fișierul nu a putut fi citit.","verify_cmd":"Comandă de verificare","bk_h":"Copie de siguranță","bk_hint":"Fișier .fff.json cu datele din localStorage ale aplicației. Varianta criptată folosește AES-GCM 256 cu cheie derivată prin PBKDF2-SHA256 ({iter} de iterații); parola nu poate fi recuperată.","bk_export":"Exportă","bk_export_enc":"Exportă criptat…","bk_import":"Importă…","bk_wipe":"Șterge datele aplicației","bk_pw":"Parolă (min. {n} caractere)","bk_pw2":"Repetă parola","bk_go":"Exportă criptat","bk_pw_file":"Parola fișierului","bk_import_go":"Importă","pw_mismatch":"Parolele nu coincid.","ok_export":"Exportat: {file} ({n} chei).","ok_export_enc":"Exportat criptat: {file} ({n} chei).","ok_import":"Importate {n} chei. Se reîncarcă pagina…","ok_wipe":"Șterse {n} chei. Se reîncarcă pagina…","nothing_to_wipe":"Nu există date de șters.","enter_pw":"Fișierul {file} este criptat: introdu parola.","cancelled":"Anulat.","kit_line":"fff-kit v{v} · module: {mods}","install":"Instalează aplicația","bk_sync":"Sincronizează între dispozitive","bk_history":"Istoric (mașina timpului)"},"en":{"title":"Transparency","open_hint":"Open the transparency label","close":"Close","disabled":"Kit features are disabled for this app: {reason}","self_mod":"Note: this app can save its own copy (together with your data). The declared SHA-256 applies only to the originally distributed file.","net_h":"Network","net_none":"0 external requests declared","net_list":"External hosts declared or allowed by the security policy (CSP):","net_note":"Declared at build time by analysing the code; you can also check the Network tab of your browser tools.","net_unknown":"Information unavailable: the file has no transparency descriptor.","store_h":"Local storage","store_none":"No keys in localStorage.","store_sum":"{n} keys · {size}","store_key":"Key","store_size":"Size","store_more":"…and {n} more keys","store_idb":"The app also uses IndexedDB, which is not included in the backup.","store_note":"Data stays in this browser; nothing is sent.","perm_h":"Permissions and APIs used","perm_none":"No sensitive APIs detected.","perm_note":"Detected statically in the source code; for sensitive ones the browser asks for your consent.","perm_cam":"Camera / microphone","perm_geo":"Location","perm_rtc":"Direct browser-to-browser connections (WebRTC)","perm_share":"Sharing (Web Share)","perm_notif":"Notifications","perm_tts":"Speech synthesis","perm_stt":"Speech recognition","perm_clip":"Clipboard","perm_sw":"Service worker (install / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptography (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Size: {size}","file_hash":"Declared SHA-256:","file_nohash":"No checksum is declared in this file.","file_how_h":"How to verify","file_how":"Choose the downloaded file: its SHA-256 is computed after blanking the hash fields (data-fff-hash and \"sha256\") and compared with the declared value. The same computation in a terminal:","verify_btn":"Verify a downloaded file…","verify_ok":"Match: the file is identical to the declared one.","verify_bad":"No match. Computed: {got}","verify_err":"The file could not be read.","verify_cmd":"Verification command","bk_h":"Backup","bk_hint":"A .fff.json file with the app's localStorage data. The encrypted variant uses AES-GCM 256 with a key derived via PBKDF2-SHA256 ({iter} iterations); the password cannot be recovered.","bk_export":"Export","bk_export_enc":"Export encrypted…","bk_import":"Import…","bk_wipe":"Delete app data","bk_pw":"Password (min. {n} characters)","bk_pw2":"Repeat password","bk_go":"Export encrypted","bk_pw_file":"File password","bk_import_go":"Import","pw_mismatch":"Passwords do not match.","ok_export":"Exported: {file} ({n} keys).","ok_export_enc":"Exported encrypted: {file} ({n} keys).","ok_import":"Imported {n} keys. Reloading the page…","ok_wipe":"Deleted {n} keys. Reloading the page…","nothing_to_wipe":"There is no data to delete.","enter_pw":"The file {file} is encrypted: enter the password.","cancelled":"Cancelled.","kit_line":"fff-kit v{v} · modules: {mods}","install":"Install the app","bk_sync":"Sync between devices","bk_history":"History (time machine)"},"fr":{"title":"Transparence","open_hint":"Ouvrir l’étiquette de transparence","close":"Fermer","disabled":"Les fonctions du kit sont désactivées pour cette application : {reason}","self_mod":"Attention : cette application peut enregistrer sa propre copie (avec vos données). Le SHA-256 déclaré ne vaut que pour le fichier distribué à l’origine.","net_h":"Réseau","net_none":"0 requête externe déclarée","net_list":"Hôtes externes déclarés ou autorisés par la politique de sécurité (CSP) :","net_note":"Déclaré à la construction par analyse du code ; vous pouvez aussi vérifier dans l’onglet Réseau des outils du navigateur.","net_unknown":"Informations indisponibles : le fichier ne contient pas de descripteur de transparence.","store_h":"Stockage local","store_none":"Aucune clé dans localStorage.","store_sum":"{n} clés · {size}","store_key":"Clé","store_size":"Taille","store_more":"…et {n} clés de plus","store_idb":"L’application utilise aussi IndexedDB, non inclus dans la sauvegarde.","store_note":"Les données restent dans ce navigateur ; rien n’est envoyé.","perm_h":"Autorisations et API utilisées","perm_none":"Aucune API sensible détectée.","perm_note":"Détectées statiquement dans le code source ; pour les API sensibles, le navigateur demande votre accord.","perm_cam":"Caméra / microphone","perm_geo":"Localisation","perm_rtc":"Connexions directes entre navigateurs (WebRTC)","perm_share":"Partage (Web Share)","perm_notif":"Notifications","perm_tts":"Synthèse vocale","perm_stt":"Reconnaissance vocale","perm_clip":"Presse-papiers","perm_sw":"Service worker (installation / hors ligne)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptographie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fichier","file_size":"Taille : {size}","file_hash":"SHA-256 déclaré :","file_nohash":"Aucune somme de contrôle n’est déclarée dans ce fichier.","file_how_h":"Comment vérifier","file_how":"Choisissez le fichier téléchargé : son SHA-256 est calculé après avoir vidé les champs de hachage (data-fff-hash et « sha256 ») puis comparé à la valeur déclarée. Même calcul dans un terminal :","verify_btn":"Vérifier un fichier téléchargé…","verify_ok":"Concordance : le fichier est identique à celui déclaré.","verify_bad":"Pas de concordance. Calculé : {got}","verify_err":"Le fichier n’a pas pu être lu.","verify_cmd":"Commande de vérification","bk_h":"Sauvegarde","bk_hint":"Un fichier .fff.json avec les données localStorage de l’application. La variante chiffrée utilise AES-GCM 256 avec une clé dérivée par PBKDF2-SHA256 ({iter} itérations) ; le mot de passe est irrécupérable.","bk_export":"Exporter","bk_export_enc":"Exporter chiffré…","bk_import":"Importer…","bk_wipe":"Supprimer les données de l’application","bk_pw":"Mot de passe (min. {n} caractères)","bk_pw2":"Répéter le mot de passe","bk_go":"Exporter chiffré","bk_pw_file":"Mot de passe du fichier","bk_import_go":"Importer","pw_mismatch":"Les mots de passe ne correspondent pas.","ok_export":"Exporté : {file} ({n} clés).","ok_export_enc":"Exporté chiffré : {file} ({n} clés).","ok_import":"{n} clés importées. Rechargement de la page…","ok_wipe":"{n} clés supprimées. Rechargement de la page…","nothing_to_wipe":"Aucune donnée à supprimer.","enter_pw":"Le fichier {file} est chiffré : saisissez le mot de passe.","cancelled":"Annulé.","kit_line":"fff-kit v{v} · modules : {mods}","install":"Installer l’application","bk_sync":"Synchroniser entre appareils","bk_history":"Historique (machine à remonter le temps)"},"it":{"title":"Trasparenza","open_hint":"Apri l’etichetta di trasparenza","close":"Chiudi","disabled":"Le funzioni del kit sono disattivate per questa app: {reason}","self_mod":"Attenzione: questa app può salvare una propria copia (insieme ai tuoi dati). Lo SHA-256 dichiarato vale solo per il file distribuito in origine.","net_h":"Rete","net_none":"0 richieste esterne dichiarate","net_list":"Host esterni dichiarati o consentiti dalla politica di sicurezza (CSP):","net_note":"Dichiarato in fase di costruzione tramite analisi del codice; puoi controllare anche nella scheda Rete degli strumenti del browser.","net_unknown":"Informazioni non disponibili: il file non contiene il descrittore di trasparenza.","store_h":"Archiviazione locale","store_none":"Nessuna chiave in localStorage.","store_sum":"{n} chiavi · {size}","store_key":"Chiave","store_size":"Dimensione","store_more":"…e altre {n} chiavi","store_idb":"L’app usa anche IndexedDB, non incluso nel backup.","store_note":"I dati restano in questo browser; non viene inviato nulla.","perm_h":"Permessi e API usati","perm_none":"Nessuna API sensibile rilevata.","perm_note":"Rilevate in modo statico nel codice sorgente; per quelle sensibili il browser chiede il tuo consenso.","perm_cam":"Fotocamera / microfono","perm_geo":"Posizione","perm_rtc":"Connessioni dirette tra browser (WebRTC)","perm_share":"Condivisione (Web Share)","perm_notif":"Notifiche","perm_tts":"Sintesi vocale","perm_stt":"Riconoscimento vocale","perm_clip":"Appunti","perm_sw":"Service worker (installazione / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Crittografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Dimensione: {size}","file_hash":"SHA-256 dichiarato:","file_nohash":"In questo file non è dichiarata alcuna somma di controllo.","file_how_h":"Come verificare","file_how":"Scegli il file scaricato: ne viene calcolato lo SHA-256 dopo aver svuotato i campi hash (data-fff-hash e «sha256») e confrontato con il valore dichiarato. Lo stesso calcolo da terminale:","verify_btn":"Verifica un file scaricato…","verify_ok":"Corrisponde: il file è identico a quello dichiarato.","verify_bad":"Non corrisponde. Calcolato: {got}","verify_err":"Impossibile leggere il file.","verify_cmd":"Comando di verifica","bk_h":"Copia di sicurezza","bk_hint":"Un file .fff.json con i dati localStorage dell’app. La variante cifrata usa AES-GCM 256 con chiave derivata tramite PBKDF2-SHA256 ({iter} iterazioni); la password non è recuperabile.","bk_export":"Esporta","bk_export_enc":"Esporta cifrato…","bk_import":"Importa…","bk_wipe":"Elimina i dati dell’app","bk_pw":"Password (min. {n} caratteri)","bk_pw2":"Ripeti la password","bk_go":"Esporta cifrato","bk_pw_file":"Password del file","bk_import_go":"Importa","pw_mismatch":"Le password non coincidono.","ok_export":"Esportato: {file} ({n} chiavi).","ok_export_enc":"Esportato cifrato: {file} ({n} chiavi).","ok_import":"Importate {n} chiavi. Ricarico la pagina…","ok_wipe":"Eliminate {n} chiavi. Ricarico la pagina…","nothing_to_wipe":"Non ci sono dati da eliminare.","enter_pw":"Il file {file} è cifrato: inserisci la password.","cancelled":"Annullato.","kit_line":"fff-kit v{v} · moduli: {mods}","install":"Installa l’app","bk_sync":"Sincronizza tra dispositivi","bk_history":"Cronologia (macchina del tempo)"},"es":{"title":"Transparencia","open_hint":"Abrir la etiqueta de transparencia","close":"Cerrar","disabled":"Las funciones del kit están desactivadas para esta aplicación: {reason}","self_mod":"Atención: esta aplicación puede guardar su propia copia (junto con tus datos). El SHA-256 declarado solo vale para el archivo distribuido originalmente.","net_h":"Red","net_none":"0 solicitudes externas declaradas","net_list":"Hosts externos declarados o permitidos por la política de seguridad (CSP):","net_note":"Declarado al construir el archivo mediante análisis del código; también puedes comprobarlo en la pestaña Red de las herramientas del navegador.","net_unknown":"Información no disponible: el archivo no contiene el descriptor de transparencia.","store_h":"Almacenamiento local","store_none":"Ninguna clave en localStorage.","store_sum":"{n} claves · {size}","store_key":"Clave","store_size":"Tamaño","store_more":"…y {n} claves más","store_idb":"La aplicación también usa IndexedDB, que no se incluye en la copia de seguridad.","store_note":"Los datos permanecen en este navegador; no se envía nada.","perm_h":"Permisos y API usadas","perm_none":"No se detectaron API sensibles.","perm_note":"Detectadas de forma estática en el código fuente; para las sensibles, el navegador pide tu consentimiento.","perm_cam":"Cámara / micrófono","perm_geo":"Ubicación","perm_rtc":"Conexiones directas entre navegadores (WebRTC)","perm_share":"Compartir (Web Share)","perm_notif":"Notificaciones","perm_tts":"Síntesis de voz","perm_stt":"Reconocimiento de voz","perm_clip":"Portapapeles","perm_sw":"Service worker (instalación / sin conexión)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografía (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Archivo","file_size":"Tamaño: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este archivo no declara ninguna suma de verificación.","file_how_h":"Cómo verificar","file_how":"Elige el archivo descargado: se calcula su SHA-256 tras vaciar los campos de hash (data-fff-hash y «sha256») y se compara con el valor declarado. El mismo cálculo en una terminal:","verify_btn":"Verificar un archivo descargado…","verify_ok":"Coincide: el archivo es idéntico al declarado.","verify_bad":"No coincide. Calculado: {got}","verify_err":"No se pudo leer el archivo.","verify_cmd":"Comando de verificación","bk_h":"Copia de seguridad","bk_hint":"Un archivo .fff.json con los datos de localStorage de la aplicación. La variante cifrada usa AES-GCM 256 con clave derivada mediante PBKDF2-SHA256 ({iter} iteraciones); la contraseña no se puede recuperar.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Borrar los datos de la aplicación","bk_pw":"Contraseña (mín. {n} caracteres)","bk_pw2":"Repite la contraseña","bk_go":"Exportar cifrado","bk_pw_file":"Contraseña del archivo","bk_import_go":"Importar","pw_mismatch":"Las contraseñas no coinciden.","ok_export":"Exportado: {file} ({n} claves).","ok_export_enc":"Exportado cifrado: {file} ({n} claves).","ok_import":"{n} claves importadas. Recargando la página…","ok_wipe":"{n} claves borradas. Recargando la página…","nothing_to_wipe":"No hay datos que borrar.","enter_pw":"El archivo {file} está cifrado: introduce la contraseña.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar la aplicación","bk_sync":"Sincronizar entre dispositivos","bk_history":"Historial (máquina del tiempo)"},"pt":{"title":"Transparência","open_hint":"Abrir a etiqueta de transparência","close":"Fechar","disabled":"As funções do kit estão desativadas para esta aplicação: {reason}","self_mod":"Atenção: esta aplicação pode guardar a sua própria cópia (juntamente com os seus dados). O SHA-256 declarado aplica-se apenas ao ficheiro distribuído originalmente.","net_h":"Rede","net_none":"0 pedidos externos declarados","net_list":"Anfitriões externos declarados ou permitidos pela política de segurança (CSP):","net_note":"Declarado na construção do ficheiro, por análise do código; pode também verificar no separador Rede das ferramentas do navegador.","net_unknown":"Informação indisponível: o ficheiro não contém o descritor de transparência.","store_h":"Armazenamento local","store_none":"Nenhuma chave em localStorage.","store_sum":"{n} chaves · {size}","store_key":"Chave","store_size":"Tamanho","store_more":"…e mais {n} chaves","store_idb":"A aplicação usa também IndexedDB, que não está incluído na cópia de segurança.","store_note":"Os dados ficam neste navegador; nada é enviado.","perm_h":"Permissões e APIs usadas","perm_none":"Não foram detetadas APIs sensíveis.","perm_note":"Detetadas de forma estática no código-fonte; para as sensíveis, o navegador pede o seu consentimento.","perm_cam":"Câmara / microfone","perm_geo":"Localização","perm_rtc":"Ligações diretas entre navegadores (WebRTC)","perm_share":"Partilha (Web Share)","perm_notif":"Notificações","perm_tts":"Síntese de voz","perm_stt":"Reconhecimento de voz","perm_clip":"Área de transferência","perm_sw":"Service worker (instalação / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Ficheiro","file_size":"Tamanho: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este ficheiro não declara nenhuma soma de verificação.","file_how_h":"Como verificar","file_how":"Escolha o ficheiro descarregado: o seu SHA-256 é calculado após esvaziar os campos de hash (data-fff-hash e «sha256») e comparado com o valor declarado. O mesmo cálculo num terminal:","verify_btn":"Verificar um ficheiro descarregado…","verify_ok":"Coincide: o ficheiro é idêntico ao declarado.","verify_bad":"Não coincide. Calculado: {got}","verify_err":"Não foi possível ler o ficheiro.","verify_cmd":"Comando de verificação","bk_h":"Cópia de segurança","bk_hint":"Um ficheiro .fff.json com os dados de localStorage da aplicação. A variante cifrada usa AES-GCM 256 com chave derivada por PBKDF2-SHA256 ({iter} iterações); a palavra-passe não pode ser recuperada.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Apagar os dados da aplicação","bk_pw":"Palavra-passe (mín. {n} caracteres)","bk_pw2":"Repita a palavra-passe","bk_go":"Exportar cifrado","bk_pw_file":"Palavra-passe do ficheiro","bk_import_go":"Importar","pw_mismatch":"As palavras-passe não coincidem.","ok_export":"Exportado: {file} ({n} chaves).","ok_export_enc":"Exportado cifrado: {file} ({n} chaves).","ok_import":"{n} chaves importadas. A recarregar a página…","ok_wipe":"{n} chaves apagadas. A recarregar a página…","nothing_to_wipe":"Não há dados para apagar.","enter_pw":"O ficheiro {file} está cifrado: introduza a palavra-passe.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar a aplicação","bk_sync":"Sincronizar entre dispositivos","bk_history":"Histórico (máquina do tempo)"},"hu":{"title":"Átláthatóság","open_hint":"Az átláthatósági címke megnyitása","close":"Bezárás","disabled":"A kit funkciói ki vannak kapcsolva ennél az alkalmazásnál: {reason}","self_mod":"Figyelem: ez az alkalmazás képes saját másolatot menteni (az adataiddal együtt). A megadott SHA-256 csak az eredetileg terjesztett fájlra érvényes.","net_h":"Hálózat","net_none":"0 külső kérés megadva","net_list":"A biztonsági irányelv (CSP) által megadott vagy engedélyezett külső gazdák:","net_note":"Az összeállításkor a kód elemzésével megadva; a böngésző eszközeinek Hálózat lapján is ellenőrizheted.","net_unknown":"Az információ nem érhető el: a fájl nem tartalmaz átláthatósági leírót.","store_h":"Helyi tárolás","store_none":"Nincs kulcs a localStorage-ban.","store_sum":"{n} kulcs · {size}","store_key":"Kulcs","store_size":"Méret","store_more":"…és még {n} kulcs","store_idb":"Az alkalmazás IndexedDB-t is használ, amely nem része a biztonsági mentésnek.","store_note":"Az adatok ebben a böngészőben maradnak; semmi sem kerül elküldésre.","perm_h":"Használt engedélyek és API-k","perm_none":"Nem található érzékeny API.","perm_note":"Statikusan, a forráskódban észlelve; az érzékenyeknél a böngésző a hozzájárulásodat kéri.","perm_cam":"Kamera / mikrofon","perm_geo":"Helyadat","perm_rtc":"Közvetlen böngésző–böngésző kapcsolatok (WebRTC)","perm_share":"Megosztás (Web Share)","perm_notif":"Értesítések","perm_tts":"Beszédszintézis","perm_stt":"Beszédfelismerés","perm_clip":"Vágólap","perm_sw":"Service worker (telepítés / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kriptográfia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fájl","file_size":"Méret: {size}","file_hash":"Megadott SHA-256:","file_nohash":"Ebben a fájlban nincs megadva ellenőrző összeg.","file_how_h":"Hogyan ellenőrizd","file_how":"Válaszd ki a letöltött fájlt: a program kiszámolja az SHA-256 értéket a hash mezők (data-fff-hash és „sha256”) kiürítése után, és összeveti a megadottal. Ugyanez terminálban:","verify_btn":"Letöltött fájl ellenőrzése…","verify_ok":"Egyezik: a fájl megegyezik a megadottal.","verify_bad":"Nem egyezik. Számított: {got}","verify_err":"A fájlt nem sikerült beolvasni.","verify_cmd":"Ellenőrző parancs","bk_h":"Biztonsági mentés","bk_hint":"Egy .fff.json fájl az alkalmazás localStorage-adataival. A titkosított változat AES-GCM 256-ot használ, PBKDF2-SHA256-tal ({iter} iteráció) származtatott kulccsal; a jelszó nem állítható vissza.","bk_export":"Exportálás","bk_export_enc":"Titkosított exportálás…","bk_import":"Importálás…","bk_wipe":"Az alkalmazás adatainak törlése","bk_pw":"Jelszó (legalább {n} karakter)","bk_pw2":"Jelszó újra","bk_go":"Titkosított exportálás","bk_pw_file":"A fájl jelszava","bk_import_go":"Importálás","pw_mismatch":"A jelszavak nem egyeznek.","ok_export":"Exportálva: {file} ({n} kulcs).","ok_export_enc":"Titkosítva exportálva: {file} ({n} kulcs).","ok_import":"{n} kulcs importálva. Az oldal újratöltése…","ok_wipe":"{n} kulcs törölve. Az oldal újratöltése…","nothing_to_wipe":"Nincs törölhető adat.","enter_pw":"A(z) {file} fájl titkosított: add meg a jelszót.","cancelled":"Megszakítva.","kit_line":"fff-kit v{v} · modulok: {mods}","install":"Alkalmazás telepítése","bk_sync":"Szinkronizálás eszközök között","bk_history":"Előzmények (időgép)"},"de":{"title":"Transparenz","open_hint":"Transparenz-Etikett öffnen","close":"Schließen","disabled":"Die Kit-Funktionen sind für diese App deaktiviert: {reason}","self_mod":"Hinweis: Diese App kann eine eigene Kopie speichern (samt deiner Daten). Der angegebene SHA-256 gilt nur für die ursprünglich verteilte Datei.","net_h":"Netzwerk","net_none":"0 externe Anfragen angegeben","net_list":"Externe Hosts, die angegeben oder von der Sicherheitsrichtlinie (CSP) erlaubt sind:","net_note":"Beim Erstellen per Code-Analyse angegeben; du kannst es auch im Netzwerk-Tab der Browser-Werkzeuge prüfen.","net_unknown":"Informationen nicht verfügbar: Die Datei enthält keinen Transparenz-Deskriptor.","store_h":"Lokaler Speicher","store_none":"Keine Schlüssel in localStorage.","store_sum":"{n} Schlüssel · {size}","store_key":"Schlüssel","store_size":"Größe","store_more":"…und {n} weitere Schlüssel","store_idb":"Die App nutzt auch IndexedDB, das nicht in der Sicherung enthalten ist.","store_note":"Die Daten bleiben in diesem Browser; nichts wird gesendet.","perm_h":"Verwendete Berechtigungen und APIs","perm_none":"Keine sensiblen APIs erkannt.","perm_note":"Statisch im Quelltext erkannt; bei sensiblen fragt der Browser nach deiner Zustimmung.","perm_cam":"Kamera / Mikrofon","perm_geo":"Standort","perm_rtc":"Direkte Browser-zu-Browser-Verbindungen (WebRTC)","perm_share":"Teilen (Web Share)","perm_notif":"Benachrichtigungen","perm_tts":"Sprachsynthese","perm_stt":"Spracherkennung","perm_clip":"Zwischenablage","perm_sw":"Service Worker (Installation / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kryptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Datei","file_size":"Größe: {size}","file_hash":"Angegebener SHA-256:","file_nohash":"In dieser Datei ist keine Prüfsumme angegeben.","file_how_h":"So prüfst du","file_how":"Wähle die heruntergeladene Datei: Ihr SHA-256 wird nach dem Leeren der Hash-Felder (data-fff-hash und „sha256“) berechnet und mit dem angegebenen Wert verglichen. Dieselbe Berechnung im Terminal:","verify_btn":"Heruntergeladene Datei prüfen…","verify_ok":"Übereinstimmung: Die Datei ist identisch mit der angegebenen.","verify_bad":"Keine Übereinstimmung. Berechnet: {got}","verify_err":"Die Datei konnte nicht gelesen werden.","verify_cmd":"Prüfbefehl","bk_h":"Sicherung","bk_hint":"Eine .fff.json-Datei mit den localStorage-Daten der App. Die verschlüsselte Variante nutzt AES-GCM 256 mit einem per PBKDF2-SHA256 ({iter} Iterationen) abgeleiteten Schlüssel; das Passwort ist nicht wiederherstellbar.","bk_export":"Exportieren","bk_export_enc":"Verschlüsselt exportieren…","bk_import":"Importieren…","bk_wipe":"App-Daten löschen","bk_pw":"Passwort (mind. {n} Zeichen)","bk_pw2":"Passwort wiederholen","bk_go":"Verschlüsselt exportieren","bk_pw_file":"Passwort der Datei","bk_import_go":"Importieren","pw_mismatch":"Die Passwörter stimmen nicht überein.","ok_export":"Exportiert: {file} ({n} Schlüssel).","ok_export_enc":"Verschlüsselt exportiert: {file} ({n} Schlüssel).","ok_import":"{n} Schlüssel importiert. Seite wird neu geladen…","ok_wipe":"{n} Schlüssel gelöscht. Seite wird neu geladen…","nothing_to_wipe":"Keine Daten zum Löschen vorhanden.","enter_pw":"Die Datei {file} ist verschlüsselt: Passwort eingeben.","cancelled":"Abgebrochen.","kit_line":"fff-kit v{v} · Module: {mods}","install":"App installieren","bk_sync":"Zwischen Geräten synchronisieren","bk_history":"Verlauf (Zeitmaschine)"}}}</script>
+<!--fff:kit:end-->
+<!--fff:info:start-->
+<script type="application/json" id="fff-info">{"schema":1,"slug":"miraj","name":"MIRAJ — retina & halucinația controlată","version":"1.0.0","updated":"2026-11-14","description":"MIRAJ — cum vede retina și cum construiește creierul imaginea: explicație interactivă pe trei niveluri, RO/EN, un singur fișier, offline.","egress":[],"permissions":["localStorage"],"storageKeys":["miraj.l","miraj.v"],"sizeBytes":149873,"sha256":"d9974f6dfcb6d6d72d312ec566223c471bc9522cecbd79ebe0babd2ce58f94e4","csp":{"present":true,"directives":{"default-src":"'none'","style-src":"'unsafe-inline'","script-src":"sha256×2","img-src":"data:","media-src":"blob: data:","connect-src":"'none'","base-uri":"'none'","form-action":"'none'"},"scriptInline":"hash","connect":"'none'"},"features":{"export":false,"import":false,"i18n":["ro","en"],"pwa":{"manifest":false,"serviceWorker":false},"modules":["core","store","ux","label"]},"kit":{"version":"1.5.0","modules":["core","store","ux","label"]},"selfSerializing":false}</script>
+<!--fff:info:end-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="MIRAJ — cum vede retina și cum construiește creierul imaginea: explicație interactivă pe trei niveluri, RO/EN, un singur fișier, offline.">
+<meta name="application-version" content="1.0.0">
+<meta name="last-updated" content="2026-11-14">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-j8AKG2XxQ5PVflBTRT29LGA9j9O+xn2AanIKMKRkIW0=' 'sha256-ikfoYmqbvn7i77UY/4tPCZ1sWHpIS5h6taYj220DMeQ='; img-src data:; media-src blob: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>MIRAJ — retina &amp; halucinația controlată</title>
+<style>
+:root{--bg:#0b0e14;--panel:#141925;--panel2:#1b2232;--tx:#e6e9f0;--mut:#9aa4b8;--ac:#7cc4ff;--ac2:#ffb86b;--bd:#27304a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+header{padding:18px 16px 6px;max-width:900px;margin:0 auto}
+h1{margin:0;font-size:1.7rem;letter-spacing:.2em;font-weight:700}
+h1 span{color:var(--ac)}
+.sub{color:var(--mut);margin:2px 0 8px;font-size:.95rem}
+.ctl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-size:.85rem;color:var(--mut)}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:999px;overflow:hidden}
+.seg button{background:var(--panel);color:var(--mut);border:0;padding:5px 12px;font-size:.85rem;cursor:pointer}
+.seg button.on{background:var(--ac2);color:#1a1004;font-weight:600}
+nav{position:sticky;top:0;z-index:5;background:rgba(11,14,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--bd);margin-top:8px}
+nav div{max-width:900px;margin:0 auto;display:flex;gap:6px;padding:8px 12px;overflow-x:auto}
+nav button{flex:0 0 auto;background:var(--panel);color:var(--mut);border:1px solid var(--bd);border-radius:999px;padding:7px 14px;font-size:.9rem;cursor:pointer}
+nav button.on{background:var(--ac);color:#06121c;border-color:var(--ac);font-weight:600}
+main{max-width:900px;margin:0 auto;padding:14px 12px 40px}
+section{display:none}
+section.on{display:block}
+h2{font-size:1.25rem;margin:6px 0 4px}
+p{margin:.5em 0}
+.card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0}
+.mut{color:var(--mut)}
+.note{font-size:.88rem;color:var(--mut)}
+canvas{width:100%;height:auto;display:block;border-radius:10px;background:#000;touch-action:none}
+svg{width:100%;height:auto;display:block}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.row label{font-size:.9rem;color:var(--mut)}
+input[type=range]{flex:1;min-width:140px;accent-color:var(--ac)}
+button.b,select{background:var(--panel2);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:8px 14px;font-size:.9rem;cursor:pointer;font-family:inherit}
+button.b.on{background:var(--ac);color:#06121c;border-color:var(--ac)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.layer{cursor:pointer}
+.layer:hover rect.bg{opacity:.32}
+#info{min-height:110px;border-left:4px solid var(--ac);padding-left:12px}
+#info h3{margin:0 0 4px;font-size:1.05rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.stat{background:var(--panel2);border:1px solid var(--bd);border-radius:12px;padding:12px}
+.stat b{display:block;font-size:1.5rem;color:var(--ac2);line-height:1.2}
+.stat span{font-size:.88rem;color:var(--mut)}
+#dots{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;max-width:420px}
+#dots i{aspect-ratio:1;background:#3a4560;border-radius:2px;display:block}
+#dots i.g{background:var(--ac2)}
+#stage{width:100%;max-width:340px;aspect-ratio:1;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;background:#777}
+#shape{width:68%;aspect-ratio:1;border-radius:50%}
+#fix{position:absolute;width:10px;height:10px;border-radius:50%;background:#000;border:2px solid #fff}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;background:var(--panel2);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;font-size:.95rem;cursor:pointer;font-family:inherit}
+.opt.ok{border-color:#3fd17a;background:rgba(63,209,122,.15)}
+.opt.no{border-color:#ff6b6b;background:rgba(255,107,107,.15)}
+.opt[disabled]{cursor:default}
+.prog{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.prog i{display:block;height:100%;background:var(--ac)}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:20px 12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>MIR<span>A</span>J</h1>
+  <p class="sub" data-k="sub"></p>
+  <div class="ctl">
+    <span><span data-k="lvl_lbl"></span> <span class="seg" id="lvl"><button data-v="1" data-k="lvl1"></button><button data-v="2" data-k="lvl2"></button><button data-v="3" data-k="lvl3"></button></span></span>
+    <span class="seg" id="lang"><button data-l="ro">RO</button><button data-l="en">EN</button></span>
+  </div>
+</header>
+<nav><div id="tabs">
+  <button data-t="retina" class="on" data-k="tab_retina"></button>
+  <button data-t="fovea" data-k="tab_fovea"></button>
+  <button data-t="orb" data-k="tab_orb"></button>
+  <button data-t="iluzii" data-k="tab_ill"></button>
+  <button data-t="bilant" data-k="tab_bil"></button>
+  <button data-t="quiz" data-k="tab_quiz"></button>
+</div></nav>
+<main>
+
+<section id="t-retina" class="on">
+  <h2 data-k="r_h"></h2>
+  <div data-k="r_p" class="mut"></div>
+  <div class="card"><svg id="rsvg" viewBox="0 0 420 450"></svg></div>
+  <div class="card" id="info"></div>
+</section>
+
+<section id="t-fovea">
+  <h2 data-k="f_h"></h2>
+  <div data-k="f_p" class="mut"></div>
+  <div class="card">
+    <canvas id="cf" width="640" height="420"></canvas>
+    <div class="row">
+      <label data-k="f_rad"></label><input type="range" id="fr" min="12" max="110" value="42">
+      <label><input type="checkbox" id="fill"> <span data-k="f_ill"></span></label>
+    </div>
+  </div>
+</section>
+
+<section id="t-orb">
+  <h2 data-k="o_h"></h2>
+  <div data-k="o_p" class="mut"></div>
+  <div class="card">
+    <canvas id="cb" width="720" height="260"></canvas>
+    <div class="row"><label data-k="o_pos"></label><input type="range" id="bx" min="170" max="690" value="420"></div>
+    <div class="pills" id="bmode">
+      <button class="b on" data-m="dot" data-k="o_dot"></button>
+      <button class="b" data-m="gap" data-k="o_gap"></button>
+      <button class="b" data-m="tex" data-k="o_tex"></button>
+    </div>
+    <p data-k="o_how"></p>
+  </div>
+</section>
+
+<section id="t-iluzii">
+  <h2 data-k="i_h"></h2>
+  <div class="pills" id="imode">
+    <button class="b on" data-i="herm" data-k="i_herm"></button>
+    <button class="b" data-i="mach" data-k="i_mach"></button>
+    <button class="b" data-i="trox" data-k="i_trox"></button>
+    <button class="b" data-i="after" data-k="i_after"></button>
+    <button class="b" data-i="flash" data-k="i_flash"></button>
+  </div>
+
+  <div class="card ill" id="i-herm">
+    <canvas id="ch" width="480" height="480"></canvas>
+    <div class="row"><label data-k="l_hw"></label><input type="range" id="hw" min="8" max="40" value="18"></div>
+    <div class="note" data-k="n_herm"></div>
+  </div>
+
+  <div class="card ill" id="i-mach" style="display:none">
+    <canvas id="cm" width="480" height="320"></canvas>
+    <div class="row"><label data-k="l_mg"></label><input type="range" id="mg" min="0" max="30" value="12"></div>
+    <div class="note" data-k="n_mach"></div>
+  </div>
+
+  <div class="card ill" id="i-trox" style="display:none">
+    <canvas id="ct" width="480" height="360"></canvas>
+    <div class="row"><button class="b" id="tstart" data-k="l_start"></button><span id="ttime" class="mut"></span></div>
+    <div class="note" data-k="n_trox"></div>
+  </div>
+
+  <div class="card ill" id="i-after" style="display:none">
+    <div id="stage"><div id="shape"></div><div id="fix"></div></div>
+    <div class="row" style="justify-content:center">
+      <select id="acol"><option value="#e53935" data-k="c_red"></option><option value="#2e7d32" data-k="c_green"></option><option value="#1e5fd6" data-k="c_blue"></option><option value="#f2c200" data-k="c_yellow"></option></select>
+      <button class="b" id="astart" data-k="a_start"></button>
+      <span id="atime" class="mut"></span>
+    </div>
+    <div class="note" data-k="n_after"></div>
+  </div>
+
+  <div class="card ill" id="i-flash" style="display:none">
+    <canvas id="cl" width="480" height="360"></canvas>
+    <div class="row"><label><input type="checkbox" id="ltruth"> <span data-k="l_truth"></span></label></div>
+    <div class="note" data-k="n_flash"></div>
+  </div>
+</section>
+
+<section id="t-bilant">
+  <h2 data-k="b_h"></h2>
+  <div data-k="b_p" class="mut"></div>
+
+  <div class="card">
+    <h3 style="margin-top:0" data-k="b_c1"></h3>
+    <div id="dots"></div>
+    <p class="note" data-k="b_c1n"></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0" data-k="b_c2"></h3>
+    <div class="row"><label><span data-k="b_ang"></span> <b id="aval">2</b>°</label><input type="range" id="ang" min="1" max="6" step="0.5" value="2"></div>
+    <div class="stat"><b id="pct">—</b><span data-k="b_pct_t"></span></div>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><b>~1–2%</b><span data-k="s1"></span></div>
+    <div class="stat"><b>5°×7°</b><span data-k="s2"></span></div>
+    <div class="stat"><b>3–4 / s</b><span data-k="s3"></span></div>
+    <div class="stat"><b>~15 / min</b><span data-k="s4"></span></div>
+    <div class="stat"><b>~100 ms</b><span data-k="s5"></span></div>
+    <div class="stat"><b>~10%</b><span data-k="s6"></span></div>
+  </div>
+
+  <div class="card">
+    <p data-k="b_concl"></p>
+    <p class="note" data-k="b_note"></p>
+  </div>
+</section>
+
+<section id="t-quiz">
+  <h2 data-k="q_h"></h2>
+  <p class="mut" data-k="q_intro"></p>
+  <div class="card" id="quiz"></div>
+</section>
+
+</main>
+<footer data-k="foot"></footer>
+<p style="text-align:center;font-size:12px;color:var(--mut);margin:6px 0 18px"><span id="app-version">v1.0.0</span></p>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let seed=11;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+const inited={};
+
+/* ================= TEXTE / TEXTS ================= */
+const T={
+ro:{
+sub:'Cum procesează retina și cât de tare halucinăm',
+lvl_lbl:'Nivel:',lvl1:'Începător',lvl2:'Mediu',lvl3:'Avansat',
+tab_retina:'Retina',tab_fovea:'Foveea',tab_orb:'Punctul orb',tab_ill:'Iluzii',tab_bil:'Bilanț',tab_quiz:'Test',
+r_h:'Un calculator în fundul ochiului',
+r_p:['Retina primește imaginea și o trimite creierului. Atinge un strat ca să afli ce face.','Retina nu e un senzor pasiv: este țesut cerebral, care prelucrează imaginea în mai multe tipuri de celule înainte ca ceva să plece spre creier.','Organizare: trei straturi de corpi celulari (ONL, INL, GCL) separate de două straturi plexiforme (OPL, IPL), unde sunt sinapsele. Informația e filtrată în paralel în peste 20 de canale ganglionare.'],
+r_hint_h:'Alege un strat',r_hint_p:'Lumina intră de sus. Retina e „inversată”: străbate aproape toate straturile înainte să ajungă la fotoreceptori.',
+r_light:'lumină',r_path:'linia punctată: conuri → bipolar → ganglionar → creier',
+layers:[
+{n:'Fibrele nervului optic',t:['Cablul care duce imaginea spre creier: ~1 milion de fibre.','Sunt axonii celulelor ganglionare; converg spre papila optică și formează nervul optic. Locul unde ies nu are fotoreceptori: punctul orb.','Nervul optic are ~1,0–1,2 milioane de axoni; majoritatea merg la nucleul geniculat lateral (LGN), alții la colicul superior și alte ținte.']},
+{n:'Celule ganglionare',t:['Singurele celule care trimit semnalul spre creier, sub formă de impulsuri.','Au câmpuri receptive centru–periferie: răspund la contrast, nu la lumina absolută.','Tipuri principale: M/parasol (mișcare, contrast), P/midget (detaliu fin, roșu–verde), K (albastru–galben). ipRGC cu melanopsină reglează ritmul circadian și reflexul pupilar.']},
+{n:'Celule amacrine',t:['Ajută la „înțelegerea” mișcării chiar în ochi.','Peste 30 de tipuri; detectează direcția mișcării și schimbările bruște, modulând semnalul bipolar→ganglionar.','Ex.: celulele starburst generează selectivitatea direcțională a ganglionarelor DS prin inhibiție asimetrică.']},
+{n:'Celule bipolare',t:['Fac legătura între fotoreceptori și celulele ganglionare.','Există canale ON (răspund la lumină) și OFF (la întuneric): baza vederii contrastelor în ambele sensuri.','Cca. 12 tipuri; ON folosesc mGluR6, OFF receptori ionotropici de glutamat. Bipolarele midget păstrează rezoluția în fovee (1 con → 1 bipolar → 1 ganglionară).']},
+{n:'Celule orizontale',t:['Fac imaginea mai contrastată, accentuând marginile.','Conectează lateral fotoreceptorii vecini și îi inhibă (inhibiție laterală): explică benzile Mach și, în parte, grila Hermann.','Feedback-ul orizontal→con reglează câștigul sinapsei și contribuie la constanța culorii și la adaptarea la lumină.']},
+{n:'Fotoreceptori',t:['Captează lumina: ~120 M bastonașe (noapte) și ~6 M conuri (zi și culoare).','Bastonașele văd în lumină slabă, fără culoare; conurile L, M, S dau culoarea și sunt concentrate în fovee. La lumină, fotoreceptorii se hiperpolarizează.','Fototransducție: foton → rodopsină/opsină → transducină → PDE6 scade cGMP → canalele CNG se închid. Un bastonaș poate răspunde la un singur foton.']},
+{n:'Epiteliu pigmentar',t:['Absoarbe lumina rătăcită și hrănește fotoreceptorii.','Regenerează pigmentul vizual (retinalul) consumat de lumină.','Fagocitează zilnic vârfurile segmentelor externe; disfuncția sa e implicată în degenerescența maculară legată de vârstă.']}],
+f_h:'Simulator de privire',
+f_p:['Mută degetul sau mouse-ul pe imagine: acolo privești. Doar centrul e clar; restul e neclar și mai puțin colorat, deși în viață ai impresia că vezi totul limpede.','Foveea (~2° din câmpul vizual) are o densitate enormă de conuri. Spre periferie conurile se răresc și mai mulți fotoreceptori converg spre aceeași celulă ganglionară, deci rezoluția scade rapid.','Densitatea conurilor scade de la ordinul a 150.000–200.000/mm² în fovee la sub 10.000/mm² la ~10° excentricitate. Magnificarea corticală face ca o fracțiune mică din retină să ocupe o mare parte din V1.'],
+f_rad:'Rază fovee',f_ill:'Arată iluzia (totul clar)',
+f_s1:'Foveea vede detalii.',f_s2:'Periferia ghicește, iar creierul completează.',
+f_words:'retină fovee con bastonaș ganglion nerv optic cortex vizual sacadă clipit iluzie context predicție',
+o_h:'Punctul orb',
+o_p:['În ochi există o zonă „oarbă”, dar nu o vezi: creierul o umple.','Unde nervul optic iese din ochi nu există fotoreceptori; în câmpul vizual apare o „gaură” de cca. 5°×7°.','Se află la ~15° temporal față de fixație, puțin sub orizontală. Umplerea (filling-in) implică activitate în cortexul vizual, nu doar ignorarea golului.'],
+o_pos:'Poziția semnului',o_dot:'Punct',o_gap:'Linie întreruptă',o_tex:'Textură',
+o_how:'<b>Cum:</b> acoperă ochiul <b>stâng</b>, privește crucea cu ochiul drept, fără să muți privirea. Ține ecranul la ~3–4 ori distanța fizică dintre cruce și semn. Mișcă lent glisorul: semnul dispare. La linie, golul se „închide”; la textură apar dungile.',
+i_h:'Iluzii: retina și creierul la lucru',
+i_herm:'Grila Hermann',i_mach:'Benzi Mach',i_trox:'Troxler',i_after:'Postimagine',i_flash:'Flash-lag',
+l_hw:'Grosime linii',
+n_herm:['Apar puncte gri la intersecțiile albe, deși acolo nu e nimic gri.','Explicația clasică: inhibiție laterală în câmpurile receptive centru–periferie. La intersecții, periferia albă inhibă mai mult centrul decât pe un culoar.','Iluzia persistă și cu linii ondulate, ceea ce contrazice explicația pur retiniană (Geier și colab.); se propun și modele corticale.'],
+l_mg:'Intensitate inhibiție',mach_lbl:'alb: luminanță reală · portocaliu: răspuns centru–periferie',
+n_mach:['Fiecare bandă e de un gri uniform, dar pare mai deschisă lângă vecina mai închisă și invers.','Retina exagerează marginile prin organizarea centru–periferie. Jos: luminanța reală (alb) și răspunsul simulat (portocaliu), cu supra- și subîncărcare la margini.','Modelul este o diferență de gaussiene (σ centru=3 px, σ periferie=9 px). Benzile Mach clasice apar la tranziții în rampă; treptele de aici ilustrează doar răspunsul filtrului.'],
+l_start:'Începe',
+n_trox:['Fixează punctul negru: după câteva secunde, petele din jur dispar.','Retina adaptează răspunsul la stimuli stabili; neuronii răspund mai ales la schimbare, iar creierul completează cu fundalul.','Efectul e mai puternic în periferie, unde câmpurile receptive sunt mari; microsacadele contracarează parțial adaptarea în condiții normale.'],
+c_red:'Roșu',c_green:'Verde',c_blue:'Albastru',c_yellow:'Galben',a_start:'Privește 20 s',a_ph:'Acum privește punctul',
+n_after:['Fixează 20 de secunde, apoi privește câmpul alb: vezi culoarea opusă, deși nu există în lume.','Conurile s-au adaptat la culoarea fixată și răspund slab la lumina albă; rămân mai active cele complementare.','Teoria canalelor oponente (Hering): adaptarea apare în conuri și în canalele oponente următoare; unele postimagini persistă cu ochii închiși, deci au și o componentă corticală.'],
+l_truth:'Arată alinierea reală',
+n_flash:['Privește crucea. Punctul alb clipit pare să rămână în urma celui verde, deși sunt aliniate.','Creierul compensează întârzierea de ~100 ms extrapolând mișcarea obiectului aflat în mișcare, dar nu și pe cel clipit.','Explicații concurente: extrapolare (Nijhawan), diferențe de latență (Whitney), mediere temporală. Efectul arată că percepția „prezentului” este o estimare.'],
+b_h:'Bilanț: cât vedem și cât completăm',
+b_p:['Percepția vizuală e mai aproape de o „halucinație controlată” (formularea lui Anil Seth): o ipoteză continuă a creierului, corectată de semnalele din retină.','În modelul „predictive coding”, creierul trimite predicții în jos, iar erorile de predicție urcă.','Formulări: Rao & Ballard, Friston. Straturile superioare prezic activitatea celor inferioare; se propagă preponderent eroarea. Modelul rămâne dezbătut ca explicație completă.'],
+b_c1:'Compresia: 120 → 1',b_c1n:'≈126 milioane de fotoreceptori → ≈1 milion de fibre în nervul optic. Retina comprimă înainte de transmitere.',
+b_c2:'Cât din câmpul vizual e cu adevărat clar?',b_ang:'Unghi de vedere clară:',b_pct_t:'din câmpul vizual (elipsă ≈200°×135°) este în focus la un moment dat. Restul e aproximat sau completat din context.',
+s1:'din suprafața retinei e fovea, dar o parte foarte mare din cortexul vizual primar îi e dedicată.',
+s2:'punctul orb: o zonă fără informație, completată automat.',
+s3:'sacade: vederea e suprimată în timpul lor, iar tu nu observi „golurile”.',
+s4:'clipiri: fiecare întrerupe imaginea ~0,1–0,15 s, iar creierul „lipește” scena.',
+s5:'întârziere retină → conștiință; creierul prezice, deci percepi o mică extrapolare.',
+s6:'cam atât din sinapsele nucleului geniculat lateral vin direct din retină; restul e feedback (cifră orientativă).',
+b_concl:'<b>Concluzie.</b> Retina trimite o schiță comprimată, cu margini accentuate și zone lipsă. Creierul construiește scena „clară și continuă” pe care o trăiești. Când intrarea lipsește, construcția continuă singură: la unele persoane cu pierdere gravă a vederii apare sindromul Charles Bonnet, cu imagini vii inexistente.',
+b_note:'Cifre aproximative din literatura clasică (ex. Curcio și colab., Jonas și colab., Sherman & Guillery); variază între indivizi. Aplicație educațională, nu instrument de diagnostic.',
+q_h:'Test',q_intro:'Zece întrebări despre retină și percepție.',q_of:'Întrebarea',q_next:'Următoarea',q_fin:'Vezi rezultatul',q_again:'Reia testul',q_score:'Scor',q_ok:'Corect!',q_no:'Greșit.',
+q_m:['Mai ai de recitit secțiunile.','Bine!','Excelent!'],
+Q:[
+{q:'Pe ce straturi ajunge lumina prima dată în retină?',o:['Direct pe fotoreceptori','Pe celulele ganglionare și celelalte straturi, înaintea fotoreceptorilor','Pe epiteliul pigmentar','Doar pe celulele bipolare'],a:1,e:'Retina e „inversată”: lumina străbate straturile interne înainte de fotoreceptori.'},
+{q:'Aproximativ ce raport există între fotoreceptori și fibrele nervului optic?',o:['1 : 1','~10 : 1','~120 : 1','~1000 : 1'],a:2,e:'≈126 M fotoreceptori față de ≈1 M fibre: retina comprimă informația.'},
+{q:'Ce celule realizează inhibiția laterală la nivelul fotoreceptorilor?',o:['Celulele bipolare','Celulele orizontale','Celulele ganglionare','Epiteliul pigmentar'],a:1,e:'Celulele orizontale conectează lateral fotoreceptorii și accentuează contrastul.'},
+{q:'De ce există punctul orb?',o:['Cristalinul are un defect','Unde iese nervul optic nu există fotoreceptori','Foveea acoperă zona','Creierul taie o parte din imagine'],a:1,e:'Papila optică nu conține fotoreceptori, deci acolo nu se înregistrează lumina.'},
+{q:'Cât din câmpul vizual acoperă vederea foarte clară (fovea)?',o:['~2°','~30°','~90°','Jumătate din câmp'],a:0,e:'Doar ~2°; restul e mult mai puțin detaliat.'},
+{q:'Benzile Mach apar în principal datorită…',o:['Reflexiei luminii în ochi','Inhibiției laterale care accentuează marginile','Zgomotului senzorilor','Clipitului'],a:1,e:'Organizarea centru–periferie exagerează contrastul la margini.'},
+{q:'Efectul Troxler arată că…',o:['Retina adaptează răspunsul la stimuli stabili','Ochiul vede doar mișcarea','Petele sunt reale și dispar','Conurile se strică'],a:0,e:'Stimulii stabili sunt „uitați”, iar creierul completează cu fundalul.'},
+{q:'De ce vezi o postimagine în culoarea complementară?',o:['Imaginea rămâne pe cristalin','Receptorii adaptați răspund slab, iar canalele opuse domină','Ecranul păstrează lumina','Mușchii ochiului obosesc'],a:1,e:'Adaptarea reduce răspunsul la culoarea fixată; apare impresia culorii opuse.'},
+{q:'Ce sugerează efectul flash-lag?',o:['Ochiul vede fără întârziere','Creierul extrapolează mișcarea pentru a compensa întârzierea','Obiectele clipite sunt mai rapide','Retina inversează timpul'],a:1,e:'Percepția „prezentului” este o predicție care compensează latența de ~100 ms.'},
+{q:'Ce înseamnă „halucinație controlată”?',o:['Că oamenii văd stafii','Percepția e o predicție a creierului, corectată de semnalele senzoriale','Că retina e defectă','Că vederea este aleatoare'],a:1,e:'Creierul generează ipoteza; intrările senzoriale o corectează.'}],
+foot:'MIRAJ · aplicație HTML single-file, offline, fără frontiere · trade-free'
+},
+en:{
+sub:'How the retina processes light and how much we hallucinate',
+lvl_lbl:'Level:',lvl1:'Beginner',lvl2:'Intermediate',lvl3:'Advanced',
+tab_retina:'Retina',tab_fovea:'Fovea',tab_orb:'Blind spot',tab_ill:'Illusions',tab_bil:'Summary',tab_quiz:'Quiz',
+r_h:'A computer at the back of the eye',
+r_p:['The retina receives the image and sends it to the brain. Tap a layer to see what it does.','The retina is not a passive sensor: it is brain tissue that processes the image through several cell types before anything leaves for the brain.','Organisation: three cell-body layers (ONL, INL, GCL) separated by two plexiform layers (OPL, IPL) where the synapses sit. Information is filtered in parallel through 20+ ganglion-cell channels.'],
+r_hint_h:'Choose a layer',r_hint_p:'Light enters from the top. The retina is "inverted": light crosses almost every layer before reaching the photoreceptors.',
+r_light:'light',r_path:'dotted line: cones → bipolar → ganglion → brain',
+layers:[
+{n:'Optic nerve fibres',t:['The cable carrying the image to the brain: about 1 million fibres.','They are the axons of ganglion cells; they converge on the optic disc to form the optic nerve. Where they exit there are no photoreceptors: the blind spot.','The optic nerve holds ~1.0–1.2 million axons; most go to the lateral geniculate nucleus (LGN), others to the superior colliculus and other targets.']},
+{n:'Ganglion cells',t:['The only cells that send the signal to the brain, as spikes.','They have centre–surround receptive fields: they respond to contrast, not absolute light.','Main types: M/parasol (motion, contrast), P/midget (fine detail, red–green), K (blue–yellow). ipRGCs with melanopsin regulate circadian rhythm and the pupil reflex.']},
+{n:'Amacrine cells',t:['They help "understand" motion inside the eye itself.','Over 30 types; they detect motion direction and sudden changes by modulating the bipolar→ganglion signal.','E.g. starburst amacrine cells create direction selectivity in DS ganglion cells through asymmetric inhibition.']},
+{n:'Bipolar cells',t:['They link photoreceptors to ganglion cells.','ON channels respond to light and OFF channels to darkness: the basis of contrast vision in both directions.','About 12 types; ON cells use mGluR6, OFF cells ionotropic glutamate receptors. Midget bipolars preserve foveal resolution (1 cone → 1 bipolar → 1 ganglion cell).']},
+{n:'Horizontal cells',t:['They sharpen contrast by emphasising edges.','They connect neighbouring photoreceptors sideways and inhibit them (lateral inhibition): this explains Mach bands and, in part, the Hermann grid.','Horizontal→cone feedback tunes synaptic gain and contributes to colour constancy and light adaptation.']},
+{n:'Photoreceptors',t:['They catch the light: ~120 M rods (night) and ~6 M cones (day and colour).','Rods work in dim light without colour; L, M, S cones give colour and cluster in the fovea. In light, photoreceptors hyperpolarise.','Phototransduction: photon → rhodopsin/opsin → transducin → PDE6 lowers cGMP → CNG channels close. A rod can respond to a single photon.']},
+{n:'Pigment epithelium',t:['It absorbs stray light and feeds the photoreceptors.','It regenerates the visual pigment (retinal) used up by light.','It phagocytoses outer-segment tips daily; its dysfunction is implicated in age-related macular degeneration.']}],
+f_h:'Gaze simulator',
+f_p:['Move your finger or mouse over the image: that is where you look. Only the centre is sharp; the rest is blurred and less colourful, although in daily life you feel you see everything clearly.','The fovea (~2° of the visual field) has an enormous density of cones. Towards the periphery cones thin out and more photoreceptors converge on the same ganglion cell, so resolution drops fast.','Cone density falls from the order of 150,000–200,000/mm² in the fovea to under 10,000/mm² at ~10° eccentricity. Cortical magnification gives a small part of the retina a large share of V1.'],
+f_rad:'Fovea radius',f_ill:'Show the illusion (all sharp)',
+f_s1:'The fovea sees detail.',f_s2:'The periphery guesses; the brain fills in.',
+f_words:'retina fovea cone rod ganglion nerve optic cortex visual saccade blink illusion context prediction',
+o_h:'The blind spot',
+o_p:['There is a "blind" zone in the eye, yet you do not see it: the brain fills it in.','Where the optic nerve leaves the eye there are no photoreceptors; a "hole" of about 5°×7° appears in the visual field.','It lies ~15° temporal to fixation, slightly below the horizontal. Filling-in involves visual-cortex activity, not merely ignoring the gap.'],
+o_pos:'Mark position',o_dot:'Dot',o_gap:'Broken line',o_tex:'Texture',
+o_how:'<b>How:</b> cover your <b>left</b> eye, look at the cross with your right eye without moving your gaze. Hold the screen at ~3–4 times the physical distance between cross and mark. Move the slider slowly: the mark vanishes. With the line, the gap "closes"; with the texture, stripes appear.',
+i_h:'Illusions: retina and brain at work',
+i_herm:'Hermann grid',i_mach:'Mach bands',i_trox:'Troxler',i_after:'Afterimage',i_flash:'Flash-lag',
+l_hw:'Line width',
+n_herm:['Grey dots appear at the white intersections, though nothing grey is there.','Classic explanation: lateral inhibition in centre–surround receptive fields. At intersections, the white surround inhibits the centre more than along a corridor.','The illusion persists with wavy lines, which contradicts a purely retinal account (Geier et al.); cortical models have been proposed.'],
+l_mg:'Inhibition strength',mach_lbl:'white: real luminance · orange: centre–surround response',
+n_mach:['Each band is a uniform grey, yet it looks lighter next to a darker neighbour and vice versa.','The retina exaggerates edges through centre–surround organisation. Below: real luminance (white) and simulated response (orange), with over- and undershoot at edges.','The model is a difference of Gaussians (σ centre=3 px, σ surround=9 px). Classic Mach bands arise at ramp transitions; the steps here only illustrate the filter response.'],
+l_start:'Start',
+n_trox:['Fixate the black dot: after a few seconds the surrounding blobs vanish.','The retina adapts to stable stimuli; neurons respond mainly to change, and the brain fills in with the background.','The effect is stronger in the periphery, where receptive fields are large; microsaccades partly counteract adaptation under normal conditions.'],
+c_red:'Red',c_green:'Green',c_blue:'Blue',c_yellow:'Yellow',a_start:'Stare for 20 s',a_ph:'Now look at the dot',
+n_after:['Stare for 20 seconds, then look at the white field: you see the opposite colour, though it does not exist in the world.','The cones adapted to the fixated colour and respond weakly to white light; the complementary ones stay relatively more active.','Opponent-process theory (Hering): adaptation occurs in cones and in downstream opponent channels; some afterimages persist with closed eyes, so a cortical component exists too.'],
+l_truth:'Show true alignment',
+n_flash:['Look at the cross. The flashed white dot seems to lag behind the green one, though they are aligned.','The brain compensates for the ~100 ms delay by extrapolating the position of the moving object, but not of the flashed one.','Competing explanations: extrapolation (Nijhawan), latency differences (Whitney), temporal averaging. The effect shows that perceiving "the present" is an estimate.'],
+b_h:'Summary: how much we see and how much we fill in',
+b_p:['Visual perception is closer to a "controlled hallucination" (Anil Seth\'s phrase): a continuous hypothesis by the brain, corrected by signals from the retina.','In the predictive-coding model, the brain sends predictions down and prediction errors travel up.','Formulations: Rao & Ballard, Friston. Higher layers predict lower-layer activity; mostly the error propagates. Whether it fully explains perception remains debated.'],
+b_c1:'Compression: 120 → 1',b_c1n:'≈126 million photoreceptors → ≈1 million fibres in the optic nerve. The retina compresses before transmitting.',
+b_c2:'How much of the visual field is truly sharp?',b_ang:'Sharp-vision angle:',b_pct_t:'of the visual field (ellipse ≈200°×135°) is in focus at any moment. The rest is approximated or filled in from context.',
+s1:'of the retinal surface is fovea, yet a very large share of primary visual cortex is devoted to it.',
+s2:'blind spot: a zone with no information, filled in automatically.',
+s3:'saccades: vision is suppressed during them and you do not notice the "gaps".',
+s4:'blinks: each interrupts the image for ~0.1–0.15 s and the brain "stitches" the scene.',
+s5:'delay from retina to awareness; the brain predicts, so you perceive a small extrapolation.',
+s6:'roughly this share of LGN synapses come directly from the retina; the rest is feedback (approximate figure).',
+b_concl:'<b>Conclusion.</b> The retina sends a compressed sketch with sharpened edges and missing zones. The brain builds the "clear and continuous" scene you experience. When input is missing, the construction carries on by itself: in some people with severe vision loss, Charles Bonnet syndrome produces vivid images that do not exist.',
+b_note:'Approximate figures from classic literature (e.g. Curcio et al., Jonas et al., Sherman & Guillery); they vary between individuals. Educational app, not a diagnostic tool.',
+q_h:'Quiz',q_intro:'Ten questions about the retina and perception.',q_of:'Question',q_next:'Next',q_fin:'See result',q_again:'Retake quiz',q_score:'Score',q_ok:'Correct!',q_no:'Wrong.',
+q_m:['Worth re-reading the sections.','Good!','Excellent!'],
+Q:[
+{q:'Which layers does light reach first in the retina?',o:['Directly the photoreceptors','The ganglion cells and other layers, before the photoreceptors','The pigment epithelium','Only the bipolar cells'],a:1,e:'The retina is "inverted": light crosses the inner layers before the photoreceptors.'},
+{q:'Roughly what ratio exists between photoreceptors and optic nerve fibres?',o:['1 : 1','~10 : 1','~120 : 1','~1000 : 1'],a:2,e:'≈126 M photoreceptors versus ≈1 M fibres: the retina compresses information.'},
+{q:'Which cells provide lateral inhibition at the photoreceptor level?',o:['Bipolar cells','Horizontal cells','Ganglion cells','Pigment epithelium'],a:1,e:'Horizontal cells connect photoreceptors sideways and sharpen contrast.'},
+{q:'Why does the blind spot exist?',o:['The lens has a flaw','There are no photoreceptors where the optic nerve exits','The fovea covers the area','The brain cuts part of the image'],a:1,e:'The optic disc contains no photoreceptors, so no light is registered there.'},
+{q:'How much of the visual field does very sharp vision (fovea) cover?',o:['~2°','~30°','~90°','Half the field'],a:0,e:'Only ~2°; the rest is far less detailed.'},
+{q:'Mach bands mainly arise because of…',o:['Light reflecting inside the eye','Lateral inhibition that sharpens edges','Sensor noise','Blinking'],a:1,e:'Centre–surround organisation exaggerates contrast at edges.'},
+{q:'The Troxler effect shows that…',o:['The retina adapts to stable stimuli','The eye sees only motion','The blobs are real and disappear','Cones get damaged'],a:0,e:'Stable stimuli are "forgotten" and the brain fills in with the background.'},
+{q:'Why do you see an afterimage in the complementary colour?',o:['The image stays on the lens','Adapted receptors respond weakly, so opposing channels dominate','The screen keeps emitting light','Eye muscles tire'],a:1,e:'Adaptation lowers the response to the fixated colour; the opposite colour seems to appear.'},
+{q:'What does the flash-lag effect suggest?',o:['The eye sees with zero delay','The brain extrapolates motion to compensate for delay','Flashed objects are faster','The retina reverses time'],a:1,e:'Perceiving "the present" is a prediction that compensates for ~100 ms of latency.'},
+{q:'What does "controlled hallucination" mean?',o:['That people see ghosts','Perception is a brain prediction corrected by sensory signals','That the retina is defective','That vision is random'],a:1,e:'The brain generates the hypothesis; sensory input corrects it.'}],
+foot:'MIRAJ · single-file HTML app, offline, without borders · trade-free'
+}};
+
+/* ================= STARE ================= */
+let lang='ro',lvl=1;
+try{lang=localStorage.getItem('miraj.l')||'ro';lvl=+localStorage.getItem('miraj.v')||1}catch(e){}
+const tt=k=>T[lang][k];
+const tier=a=>a.slice(0,lvl).map(s=>'<p>'+s+'</p>').join('');
+let selLayer=-1;
+
+function apply(){
+  document.documentElement.lang=lang;
+  $$('[data-k]').forEach(e=>{const v=T[lang][e.dataset.k];if(v===undefined)return;e.innerHTML=Array.isArray(v)?tier(v):v});
+  $$('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  $$('#lvl button').forEach(b=>b.classList.toggle('on',+b.dataset.v===lvl));
+  renderRetina();
+  if(inited.fovea)fovScene();
+  if(inited.iluzii&&machFn)machFn();
+  if(inited.bilant)upBilant();
+  if(inited.quiz)renderQuiz();
+}
+$$('#lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('miraj.l',lang)}catch(e){}apply()});
+$$('#lvl button').forEach(b=>b.onclick=()=>{lvl=+b.dataset.v;try{localStorage.setItem('miraj.v',lvl)}catch(e){}apply()});
+
+/* ---------- tabs ---------- */
+$$('#tabs button').forEach(b=>b.onclick=()=>{
+  $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('main > section').forEach(s=>s.classList.toggle('on',s.id==='t-'+b.dataset.t));
+  const t=b.dataset.t;
+  if(!inited[t]){inited[t]=1;({retina:()=>{},fovea:initFovea,orb:initOrb,iluzii:initIll,bilant:initBilant,quiz:initQuiz})[t]()}
+  window.scrollTo({top:0});
+});
+
+/* ---------- RETINA ---------- */
+const LAYG=[{y:40,h:30,c:'#ffd27a'},{y:74,h:52,c:'#ff8a65'},{y:130,h:40,c:'#c58cff'},{y:174,h:52,c:'#6ee7b7'},{y:230,h:34,c:'#7cc4ff'},{y:268,h:112,c:'#ffe066'},{y:384,h:30,c:'#a1887f'}];
+function showInfo(){
+  const box=$('#info');
+  if(selLayer<0){box.style.borderColor='#7cc4ff';box.innerHTML='<h3>'+tt('r_hint_h')+'</h3><p class="mut">'+tt('r_hint_p')+'</p>';return}
+  const l=tt('layers')[selLayer];box.style.borderColor=LAYG[selLayer].c;box.innerHTML='<h3>'+l.n+'</h3>'+tier(l.t);
+}
+function renderRetina(){
+  seed=11;const names=tt('layers');
+  let s='<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#ffe9a8"/></marker></defs>';
+  [80,210,340].forEach(x=>s+=`<line x1="${x}" y1="4" x2="${x}" y2="34" stroke="#ffe9a8" stroke-width="2" marker-end="url(#ar)"/>`);
+  s+=`<text x="150" y="26" fill="#ffe9a8" font-size="12">${tt('r_light')}</text>`;
+  LAYG.forEach((l,i)=>{
+    s+=`<g class="layer" data-i="${i}"><rect class="bg" x="10" y="${l.y}" width="400" height="${l.h}" rx="8" fill="${l.c}" opacity=".16" stroke="${l.c}" stroke-width="${i===selLayer?3:1}"/>`;
+    const cy=l.y+l.h/2;
+    if(i==0)for(let k=0;k<5;k++)s+=`<line x1="14" y1="${l.y+6+k*5}" x2="406" y2="${l.y+6+k*5}" stroke="${l.c}" opacity=".6"/>`;
+    if(i==1)for(let k=0;k<9;k++)s+=`<circle cx="${60+k*42}" cy="${cy+8}" r="9" fill="${l.c}" opacity=".85"/>`;
+    if(i==2)for(let k=0;k<8;k++)s+=`<circle cx="${50+k*48}" cy="${cy+6}" r="6" fill="${l.c}" opacity=".85"/>`;
+    if(i==3)for(let k=0;k<11;k++)s+=`<ellipse cx="${40+k*34}" cy="${cy+4}" rx="6" ry="11" fill="${l.c}" opacity=".85"/>`;
+    if(i==4)for(let k=0;k<7;k++)s+=`<ellipse cx="${55+k*52}" cy="${cy+3}" rx="18" ry="5" fill="${l.c}" opacity=".85"/>`;
+    if(i==5)for(let k=0;k<30;k++){const x=22+k*12.9;
+      if(k%5==2)s+=`<path d="M${x-5},${l.y+96} L${x},${l.y+46} L${x+5},${l.y+96}z" fill="#ff7b72" opacity=".9"/><rect x="${x-3}" y="${l.y+8}" width="6" height="40" rx="2" fill="${l.c}" opacity=".5"/>`;
+      else s+=`<rect x="${x-2.5}" y="${l.y+10+rnd()*8}" width="5" height="70" rx="2.5" fill="${l.c}" opacity=".85"/>`;}
+    if(i==6)for(let k=0;k<20;k++)s+=`<circle cx="${22+k*20}" cy="${cy}" r="7" fill="${l.c}" opacity=".6"/>`;
+    s+=`<text x="16" y="${l.y+13}" font-size="12" fill="#fff" stroke="#0b0e14" stroke-width="3" paint-order="stroke">${names[i].n}</text></g>`;
+  });
+  s+='<polyline points="82,310 82,226 82,200 80,150 80,110" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="4 3" opacity=".8"/>';
+  s+=`<text x="90" y="438" font-size="11" fill="#9aa4b8">${tt('r_path')}</text>`;
+  $('#rsvg').innerHTML=s;
+  $$('#rsvg .layer').forEach(g=>g.onclick=()=>{selLayer=+g.dataset.i;renderRetina();showInfo()});
+  showInfo();
+}
+
+/* ---------- FOVEA ---------- */
+let fovDraw=()=>{};
+function fovScene(){
+  seed=11;const W=640,H=420;
+  const sc=document.createElement('canvas');sc.width=W;sc.height=H;const s=sc.getContext('2d');
+  let g=s.createLinearGradient(0,0,W,H);g.addColorStop(0,'#16254a');g.addColorStop(1,'#3a1d3f');s.fillStyle=g;s.fillRect(0,0,W,H);
+  const cols=['#ff4d4d','#ffd23f','#3fd17a','#3fa7ff','#c76bff','#ff8a3f'];
+  for(let i=0;i<26;i++){s.fillStyle=cols[i%6];s.beginPath();s.arc(30+rnd()*580,30+rnd()*360,8+rnd()*22,0,7);s.fill();}
+  s.fillStyle='#fff';s.font='bold 34px sans-serif';s.fillText(tt('f_s1'),150,70);
+  s.font='20px sans-serif';s.fillText(tt('f_s2'),100,105);
+  s.font='13px monospace';
+  const words=tt('f_words').split(' ');
+  for(let r=0;r<9;r++){let line='';for(let k=0;k<8;k++)line+=words[(r*3+k)%words.length]+' ';s.fillStyle='#eaf0ff';s.fillText(line,60,200+r*17);}
+  s.fillStyle='#fff';s.font='bold 22px monospace';
+  for(let r=0;r<3;r++)for(let k=0;k<10;k++)s.fillText('AEKMRSTXZH'[(r*7+k*3)%10],440+k*18,230+r*30);
+  s.strokeStyle='#fff';s.lineWidth=2;for(let i=0;i<14;i++){s.beginPath();s.moveTo(40+i*8,340);s.lineTo(40+i*8,400);s.stroke();}
+  s.fillStyle='#ffd23f';s.beginPath();s.arc(520,350,32,0,7);s.fill();s.fillStyle='#000';s.fillRect(508,340,6,6);s.fillRect(526,340,6,6);s.fillRect(508,358,24,4);
+  function small(f,gray){const t=document.createElement('canvas');t.width=Math.round(W/f);t.height=Math.round(H/f);const x=t.getContext('2d');x.imageSmoothingEnabled=true;x.drawImage(sc,0,0,t.width,t.height);
+    const d=x.getImageData(0,0,t.width,t.height),p=d.data;for(let i=0;i<p.length;i+=4){const y=.3*p[i]+.59*p[i+1]+.11*p[i+2];p[i]=p[i]*(1-gray)+y*gray;p[i+1]=p[i+1]*(1-gray)+y*gray;p[i+2]=p[i+2]*(1-gray)+y*gray}
+    x.putImageData(d,0,0);return t}
+  const mid=small(4,.35),low=small(11,.75),c=$('#cf'),ctx=c.getContext('2d');
+  const tc=document.createElement('canvas');tc.width=W;tc.height=H;const t=tc.getContext('2d');
+  function masked(src,x,y,r0,r1){t.globalCompositeOperation='source-over';t.clearRect(0,0,W,H);t.imageSmoothingEnabled=true;t.drawImage(src,0,0,W,H);
+    t.globalCompositeOperation='destination-in';const gr=t.createRadialGradient(x,y,r0,x,y,r1);gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(1,'rgba(0,0,0,0)');t.fillStyle=gr;t.fillRect(0,0,W,H);ctx.drawImage(tc,0,0)}
+  fovDraw=()=>{
+    const R=+$('#fr').value;ctx.imageSmoothingEnabled=true;
+    if($('#fill').checked){ctx.drawImage(sc,0,0);return}
+    ctx.drawImage(low,0,0,W,H);
+    masked(mid,fovPos.x,fovPos.y,R*1.6,R*3.4);
+    masked(sc,fovPos.x,fovPos.y,R*.55,R);
+    ctx.strokeStyle='rgba(255,255,255,.5)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(fovPos.x,fovPos.y,3,0,7);ctx.stroke();
+  };
+  fovDraw();
+}
+const fovPos={x:320,y:210};
+function initFovea(){
+  const c=$('#cf');
+  function mv(e){const r=c.getBoundingClientRect();fovPos.x=(e.clientX-r.left)*640/r.width;fovPos.y=(e.clientY-r.top)*420/r.height;fovDraw()}
+  c.addEventListener('pointermove',mv);c.addEventListener('pointerdown',mv);
+  $('#fr').oninput=()=>fovDraw();$('#fill').onchange=()=>fovDraw();
+  fovScene();
+}
+
+/* ---------- PUNCT ORB ---------- */
+function initOrb(){
+  const c=$('#cb'),x=c.getContext('2d'),W=720,H=260,Y=130;let mode='dot';
+  function draw(){
+    const px=+$('#bx').value;x.fillStyle='#10141f';x.fillRect(0,0,W,H);
+    if(mode=='tex'){x.save();x.strokeStyle='#5a76b8';x.lineWidth=5;for(let i=-H;i<W;i+=16){x.beginPath();x.moveTo(i,0);x.lineTo(i+H,H);x.stroke()}
+      x.restore();x.fillStyle='#10141f';x.beginPath();x.arc(px,Y,30,0,7);x.fill();}
+    if(mode=='gap'){x.strokeStyle='#ff8a65';x.lineWidth=9;x.beginPath();x.moveTo(40,Y);x.lineTo(px-30,Y);x.moveTo(px+30,Y);x.lineTo(W-20,Y);x.stroke();}
+    if(mode=='dot'){x.fillStyle='#ff4d4d';x.beginPath();x.arc(px,Y,14,0,7);x.fill()}
+    x.strokeStyle='#fff';x.lineWidth=4;x.beginPath();x.moveTo(75,Y-18);x.lineTo(75,Y+18);x.moveTo(57,Y);x.lineTo(93,Y);x.stroke();
+  }
+  $('#bx').oninput=draw;
+  $$('#bmode button').forEach(b=>b.onclick=()=>{mode=b.dataset.m;$$('#bmode button').forEach(k=>k.classList.toggle('on',k===b));draw()});
+  draw();
+}
+
+/* ---------- ILUZII ---------- */
+let flashRAF=0,flashOn=false,machFn=null;
+function initIll(){
+  $$('#imode button').forEach(b=>b.onclick=()=>{
+    $$('#imode button').forEach(k=>k.classList.toggle('on',k===b));
+    $$('.ill').forEach(d=>d.style.display=d.id==='i-'+b.dataset.i?'block':'none');
+    flashOn=b.dataset.i==='flash';if(flashOn&&!flashRAF)flashLoop();
+  });
+  const h=$('#ch').getContext('2d');
+  function herm(){const w=+$('#hw').value,sq=70,W=480;h.fillStyle='#fff';h.fillRect(0,0,W,W);h.fillStyle='#000';
+    for(let i=0;i*(sq+w)<W+sq;i++)for(let j=0;j*(sq+w)<W+sq;j++)h.fillRect(w/2+i*(sq+w),w/2+j*(sq+w),sq,sq)}
+  $('#hw').oninput=herm;herm();
+  const m=$('#cm').getContext('2d');
+  machFn=function(){const W=480,H=320,n=8,sw=W/n;m.fillStyle='#000';m.fillRect(0,0,W,H);
+    const lum=i=>(40+i*25)/255;
+    for(let i=0;i<n;i++){const v=Math.round(lum(i)*255);m.fillStyle=`rgb(${v},${v},${v})`;m.fillRect(i*sw,0,sw,120)}
+    const L=new Float32Array(W);for(let p=0;p<W;p++)L[p]=lum(Math.min(n-1,Math.floor(p/sw)));
+    const R=30,gc=3,gs=9;let kc=[],ks=[],sc=0,ss=0;
+    for(let k=-R;k<=R;k++){const a=Math.exp(-k*k/(2*gc*gc)),b=Math.exp(-k*k/(2*gs*gs));kc.push(a);ks.push(b);sc+=a;ss+=b}
+    const gain=+$('#mg').value/10,base=300,sc2=130;
+    m.strokeStyle='#223';m.lineWidth=1;m.strokeRect(.5,150.5,W-1,150);
+    function plot(f,col){m.strokeStyle=col;m.lineWidth=2;m.beginPath();for(let p=0;p<W;p++){const y=base-f(p)*sc2;p?m.lineTo(p,y):m.moveTo(p,y)}m.stroke()}
+    const resp=p=>{let c=0,s=0;for(let k=-R;k<=R;k++){const q=Math.min(W-1,Math.max(0,p+k)),v=L[q];c+=v*kc[k+R];s+=v*ks[k+R]}return c/sc-s/ss};
+    plot(p=>L[p],'#ffffff');plot(p=>L[p]+gain*resp(p),'#ffb86b');
+    m.fillStyle='#9aa4b8';m.font='12px sans-serif';m.fillText(tt('mach_lbl'),8,146);
+  };
+  $('#mg').oninput=machFn;machFn();
+  const tx=$('#ct').getContext('2d');let tint=0;
+  function trox(){tx.fillStyle='#8a8a8a';tx.fillRect(0,0,480,360);
+    for(let i=0;i<7;i++){const a=i/7*6.283,x=240+Math.cos(a)*135,y=180+Math.sin(a)*115,g=tx.createRadialGradient(x,y,0,x,y,48);g.addColorStop(0,'rgba(110,170,215,.55)');g.addColorStop(1,'rgba(110,170,215,0)');tx.fillStyle=g;tx.fillRect(x-50,y-50,100,100)}
+    tx.fillStyle='#000';tx.beginPath();tx.arc(240,180,5,0,7);tx.fill()}
+  trox();
+  $('#tstart').onclick=()=>{trox();clearInterval(tint);let t=0;$('#ttime').textContent='0 s';tint=setInterval(()=>{t++;$('#ttime').textContent=t+' s';if(t>=25)clearInterval(tint)},1000)};
+  let ai=0;
+  $('#astart').onclick=()=>{
+    clearInterval(ai);const st=$('#stage'),sh=$('#shape');st.style.background='#777';sh.style.display='block';sh.style.background=$('#acol').value;
+    let t=20;$('#atime').textContent=t+' s';
+    ai=setInterval(()=>{t--;$('#atime').textContent=t+' s';if(t<=0){clearInterval(ai);sh.style.display='none';st.style.background='#fff';$('#atime').textContent=tt('a_ph')}},1000)};
+  $('#acol').onchange=()=>{clearInterval(ai);$('#shape').style.display='block';$('#stage').style.background='#777';$('#shape').style.background=$('#acol').value;$('#atime').textContent=''};
+  $('#shape').style.background=$('#acol').value;
+}
+function flashLoop(){
+  const x=$('#cl').getContext('2d'),t0=performance.now();
+  (function f(now){
+    if(!flashOn){flashRAF=0;return}
+    const t=(now-t0)/1000,ang=t*2.0,cyc=t%1.6,show=cyc<.09,frozen=cyc<.5&&$('#ltruth').checked;
+    x.fillStyle='#10141f';x.fillRect(0,0,480,360);
+    x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(230,180);x.lineTo(250,180);x.moveTo(240,170);x.lineTo(240,190);x.stroke();
+    x.fillStyle='#3fd17a';x.beginPath();x.arc(240+Math.cos(ang)*140,180+Math.sin(ang)*140,10,0,7);x.fill();
+    if(show){x.fillStyle='#fff';x.beginPath();x.arc(240+Math.cos(ang)*85,180+Math.sin(ang)*85,10,0,7);x.fill()}
+    if(frozen){const a=Math.floor(t/1.6)*1.6*2.0;x.strokeStyle='rgba(255,184,107,.8)';x.lineWidth=1.5;x.beginPath();x.moveTo(240+Math.cos(a)*60,180+Math.sin(a)*60);x.lineTo(240+Math.cos(a)*160,180+Math.sin(a)*160);x.stroke()}
+    flashRAF=requestAnimationFrame(f);
+  })(performance.now());
+}
+
+/* ---------- BILANT ---------- */
+function upBilant(){const a=+$('#ang').value;$('#aval').textContent=a;
+  const p=Math.PI*(a/2)*(a/2)/(Math.PI*100*67.5)*100;let s=p.toFixed(3);if(lang==='ro')s=s.replace('.',',');$('#pct').textContent='≈ '+s+' %'}
+function initBilant(){
+  let d='';for(let i=0;i<120;i++)d+=`<i class="${i==0?'g':''}"></i>`;$('#dots').innerHTML=d;
+  $('#ang').oninput=upBilant;upBilant();
+}
+
+/* ---------- QUIZ ---------- */
+const Qs={i:0,s:0,ans:null,done:false};
+function initQuiz(){renderQuiz()}
+function renderQuiz(){
+  const Q=tt('Q'),box=$('#quiz');
+  if(Qs.done){
+    const f=Qs.s/Q.length,m=tt('q_m')[f<.5?0:(f<.85?1:2)];
+    box.innerHTML=`<h3 style="margin-top:0">${tt('q_score')}: ${Qs.s} / ${Q.length}</h3><p>${m}</p><button class="b" id="qre">${tt('q_again')}</button>`;
+    $('#qre').onclick=()=>{Qs.i=0;Qs.s=0;Qs.ans=null;Qs.done=false;renderQuiz()};return;
+  }
+  const q=Q[Qs.i];
+  let h=`<div class="prog"><i style="width:${(Qs.i/Q.length)*100}%"></i></div><p class="note">${tt('q_of')} ${Qs.i+1} / ${Q.length}</p><p><b>${q.q}</b></p>`;
+  q.o.forEach((o,k)=>{
+    let cls='opt';if(Qs.ans!==null){if(k===q.a)cls+=' ok';else if(k===Qs.ans)cls+=' no'}
+    h+=`<button class="${cls}" data-k2="${k}" ${Qs.ans!==null?'disabled':''}>${o}</button>`;
+  });
+  if(Qs.ans!==null){
+    h+=`<p><b>${Qs.ans===q.a?tt('q_ok'):tt('q_no')}</b> ${q.e}</p><button class="b" id="qn">${Qs.i===Q.length-1?tt('q_fin'):tt('q_next')}</button>`;
+  }
+  box.innerHTML=h;
+  $$('#quiz .opt').forEach(b=>b.onclick=()=>{Qs.ans=+b.dataset.k2;if(Qs.ans===q.a)Qs.s++;renderQuiz()});
+  const n=$('#qn');if(n)n.onclick=()=>{Qs.ans=null;if(Qs.i===Q.length-1)Qs.done=true;else Qs.i++;renderQuiz()};
+}
+
+apply();inited.retina=1;
+</script>
+</body>
+</html>

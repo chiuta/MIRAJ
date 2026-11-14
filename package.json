@@ -1,0 +1,13 @@
+{
+  "name": "miraj",
+  "version": "1.0.0",
+  "description": "MIRAJ \u2014 how the retina sees and the brain builds the picture: interactive, three levels, RO/EN, single offline file.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node tests/app.test.mjs && node tests/mirajx.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}
