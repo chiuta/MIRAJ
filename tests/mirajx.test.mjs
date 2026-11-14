@@ -4,9 +4,9 @@ const require = createRequire(process.env.PW_ROOT || import.meta.url); const {ch
 const FILE = "file://" + path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "index.html");
 let ok = 0, bad = 0; const check = (n, c, x) => { if (c) { ok++; console.log("  ok   " + n); } else { bad++; console.log("  FAIL " + n + (x !== undefined ? " -> " + JSON.stringify(x) : "")); } };
 const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"]});
-const errs = [], net = []; const ctx = await b.newContext({serviceWorkers: "block"}); await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
+const errs = [], net = []; const ctx = await b.newContext({serviceWorkers: "block"}); await ctx.addInitScript(() => { try { localStorage.setItem("miraj.l", "ro"); } catch (e) {} }); await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
 const p = await ctx.newPage(); p.on("pageerror", e => errs.push(e.message)); await p.goto(FILE); await p.waitForTimeout(600);
-const ro = await p.evaluate(() => document.body.innerText); await p.click('#lang button[data-l="en"]'); await p.waitForTimeout(200);
+const ro = await p.evaluate(() => document.body.innerText); await p.selectOption("#lang", "en"); await p.waitForTimeout(200);
 const en = await p.evaluate(() => document.body.innerText); check("EN diferă de RO", en !== ro && /Retina|Quiz/.test(en));
 for (const t of ["retina", "fovea", "orb", "iluzii", "bilant", "quiz"]) { await p.click(`#tabs [data-t="${t}"]`).catch(() => {}); await p.waitForTimeout(150); }
 await p.click('#tabs [data-t="quiz"]'); await p.waitForTimeout(200);
