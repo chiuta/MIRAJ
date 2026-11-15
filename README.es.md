@@ -6,7 +6,7 @@ Cómo ve la retina y cómo construye el cerebro la imagen: explicación interact
 
 **[Abrir la aplicación →](https://miraj.chiuta.ro/)**
 
-_Versión: 1.0.0 · Última actualización: 2026-11-14_
+_Versión: 1.2.0 · Última actualización: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|
