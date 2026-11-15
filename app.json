@@ -7,20 +7,21 @@
   "description": "MIRAJ — cum vede retina și cum construiește creierul imaginea: explicație interactivă pe trei niveluri, RO/EN, un singur fișier, offline.",
   "egress": [],
   "permissions": [
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "miraj.l",
     "miraj.v"
   ],
-  "sizeBytes": 234008,
-  "sha256": "677c1298da92a78811c7e9d21704bdd5eb8afea0b68ade33960a039a3ceea727",
+  "sizeBytes": 286145,
+  "sha256": "42d5f02335701cf3d37f6368b0e28e6bab253bc00c52e4f2cb1ffe3bfafa7318",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
       "style-src": "'unsafe-inline'",
-      "script-src": "sha256×2",
+      "script-src": "sha256×3",
       "img-src": "data:",
       "media-src": "blob: data:",
       "connect-src": "'none'",
