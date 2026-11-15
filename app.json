@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "miraj",
   "name": "MIRAJ — retina & halucinația controlată",
-  "version": "1.1.0",
-  "updated": "2026-11-14",
+  "version": "1.1.1",
+  "updated": "2026-11-15",
   "description": "MIRAJ — cum vede retina și cum construiește creierul imaginea: explicație interactivă pe trei niveluri, RO/EN, un singur fișier, offline.",
   "egress": [],
   "permissions": [
@@ -14,8 +14,8 @@
     "miraj.l",
     "miraj.v"
   ],
-  "sizeBytes": 286145,
-  "sha256": "42d5f02335701cf3d37f6368b0e28e6bab253bc00c52e4f2cb1ffe3bfafa7318",
+  "sizeBytes": 291065,
+  "sha256": "23e6fae82ba5b5b09c561b3037fb42f837efa924359465564c7c827973b98e52",
   "csp": {
     "present": true,
     "directives": {
