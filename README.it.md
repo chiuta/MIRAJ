@@ -6,7 +6,7 @@ Come vede la retina e come il cervello costruisce l’immagine: spiegazione inte
 
 **[Apri l’app →](https://miraj.chiuta.ro/)**
 
-_Versione: 1.2.1 · Ultimo aggiornamento: 2026-11-15_
+_Versione: 1.2.2 · Ultimo aggiornamento: 2026-11-17_
 
 | 1 | 2 | 3 |
 |---|---|---|

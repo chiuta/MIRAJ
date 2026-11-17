@@ -6,7 +6,7 @@ How the retina sees and how the brain builds the picture: an interactive explain
 
 **[Open the app →](https://miraj.chiuta.ro/)**
 
-_Version: 1.2.1 · Last updated: 2026-11-15_
+_Version: 1.2.2 · Last updated: 2026-11-17_
 
 | 1 | 2 | 3 |
 |---|---|---|
