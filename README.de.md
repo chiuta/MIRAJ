@@ -6,7 +6,7 @@ Wie die Netzhaut sieht und wie das Gehirn das Bild aufbaut: interaktive Erkläru
 
 **[App öffnen →](https://miraj.chiuta.ro/)**
 
-_Version: 1.2.2 · Letzte Aktualisierung: 2026-11-17_
+_Version: 1.2.3 · Letzte Aktualisierung: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|

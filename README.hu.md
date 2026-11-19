@@ -6,7 +6,7 @@ Hogyan lát a recehártya, és hogyan építi fel az agy a képet: interaktív m
 
 **[Alkalmazás megnyitása →](https://miraj.chiuta.ro/)**
 
-_Verzió: 1.2.2 · Utolsó frissítés: 2026-11-17_
+_Verzió: 1.2.3 · Utolsó frissítés: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|

@@ -6,7 +6,7 @@ Cum vede retina și cum construiește creierul imaginea: explicație interactiv�
 
 **[Deschide aplicația →](https://miraj.chiuta.ro/)**
 
-_Versiune: 1.2.2 · Ultima actualizare: 2026-11-17_
+_Versiune: 1.2.3 · Ultima actualizare: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|

@@ -6,7 +6,7 @@ Comment la rétine voit et comment le cerveau construit l’image : explication 
 
 **[Ouvrir l’application →](https://miraj.chiuta.ro/)**
 
-_Version: 1.2.2 · Dernière mise à jour: 2026-11-17_
+_Version: 1.2.3 · Dernière mise à jour: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|
